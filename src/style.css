@@ -1,4 +1,7 @@
-.hello {
+body{
+  background: url(./image/hero.png);
+}
+.red{
   color: red;
-  background: url('./Layer.png');
+  font-size: 36px;
 }

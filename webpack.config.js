@@ -1,45 +1,47 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    filename: 'js/main.js',
-    path: path.resolve(__dirname, 'build'),
+  mode: 'development',
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js'
   },
-   module: {
+  devtool: 'inline-source-map',
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Document'
+    })
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
+  },
+  module: {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader',
-        }),
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {name: 'assets/images/[name].[ext]'}  
-          }
+          'file-loader'
         ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {name: 'assets/fonts/[name].[ext]'} 
-          }
-
-       ]
-      },
+          'file-loader'
+        ]
+      }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin(),
-    new ExtractTextPlugin('css/styles.css')
-  ]
 };

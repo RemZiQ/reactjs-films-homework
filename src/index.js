@@ -1,15 +1,15 @@
-import './style.css';
-import Layer from './Layer.png';
+import "./style.css";
+import printMe from './print';
 
 function component() {
   let element = document.createElement('div');
+  const btn = document.createElement('button');
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-  const image = new Image();
-  image.src = Layer;
-  element.appendChild(image);
+  element.innerHTML += 'Hello webpack';
+  element.classList.add('red');
+  element.appendChild(btn);
   return element;
 }
 
