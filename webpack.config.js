@@ -6,11 +6,12 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: ['./src/index.js', 'webpack-hot-middleware/client']
   },
   devtool: 'inline-source-map',
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Document'
