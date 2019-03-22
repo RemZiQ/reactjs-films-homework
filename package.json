@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config config/webpack/webpack.production.config.js",
-    "start": "node server.js",
+    "start": "set NODE_ENV=development && node server.js",
+    "prod": "set NODE_ENV=production && node server.js ",
     "stylelint": "npx stylelint src/**/**.css",
     "lint": "npx eslint src/"
   },
