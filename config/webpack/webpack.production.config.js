@@ -15,6 +15,7 @@ module.exports = {
       filename: "./index.html",
     })
   ],
+  resolve: {extensions: ['.js','.jsx']},
   output: {
     filename: 'js/[hash].bundle.js',
     path: path.resolve(__dirname, '../../dist'),
