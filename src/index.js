@@ -1,4 +1,4 @@
-import signature from './buffer';
+import signature from './buffer.jsx';
 
 signature();
 
