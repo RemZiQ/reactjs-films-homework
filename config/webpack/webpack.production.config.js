@@ -11,7 +11,8 @@ module.exports = {
     new ExtractTextPlugin('css/[hash].style.css'),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Document'
+      template: "./src/index.html",
+      filename: "./index.html",
     })
   ],
   output: {

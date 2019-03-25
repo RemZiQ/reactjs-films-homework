@@ -9,7 +9,8 @@
     "start": "set NODE_ENV=development && node server.js",
     "prod": "set NODE_ENV=production && node server.js ",
     "stylelint": "npx stylelint src/**/**.css",
-    "lint": "npx eslint src/"
+    "lint": "npx eslint src/",
+    "fix": "npx eslint --fix src/"
   },
   "jest": {
     "moduleNameMapper": {
@@ -35,6 +36,7 @@
   "homepage": "https://github.com/RemZiQ/reactjs-films-homework#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "stylelint": "^9.10.1",

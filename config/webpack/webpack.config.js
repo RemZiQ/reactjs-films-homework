@@ -14,7 +14,8 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Document'
+      template: "./src/index.html",
+      filename: "./index.html",
     })
   ],
   output: {
