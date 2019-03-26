@@ -1,5 +1,8 @@
 .pageHeader{
+  display: flex;
   box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   max-width: 2400px;
   min-height: 1080px;
