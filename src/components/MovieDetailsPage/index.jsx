@@ -4,13 +4,11 @@ import MovieDetailsPageFooter from '../MovieDetailsPage__Footer/index';
 import './style.scss';
 
 
-const  MovieDetailsPage = () => {
-    return (
-      <header className="pageHeader" id="pageHeaderID">
-      <MovieDetailsPageNav></MovieDetailsPageNav>
-      <MovieDetailsPageFooter></MovieDetailsPageFooter>
-      </header>
-    )
-}
+const MovieDetailsPage = () => (
+  <header className="pageHeader" id="pageHeaderID">
+    <MovieDetailsPageNav />
+    <MovieDetailsPageFooter />
+  </header>
+);
 
 export default MovieDetailsPage;

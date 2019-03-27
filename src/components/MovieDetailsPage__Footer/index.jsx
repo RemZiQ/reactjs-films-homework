@@ -8,14 +8,14 @@ const movieDetailsPageFooter = () => {
    wizarding world of 1926 New York. Something mysterious is 
    leaving a path of dectruction in the streets,
    threatening to expose the wizarding`;
-   const exampleGenres = ['Adventure', 'Drama', 'Family', 'Fantasy'];
-   const exampleDuration = '1h 46m';
-   const exampleRating = 4.8;
+  const exampleGenres = ['Adventure', 'Drama', 'Family', 'Fantasy'];
+  const exampleDuration = '1h 46m';
+  const exampleRating = 4.8;
   return (
     <div className="movieDetailsPage__footer">
-    <StarRating title="the jungle book" genres={exampleGenres} duration={exampleDuration} rating={exampleRating}></StarRating>
-    <Action info={exampleInfo}></Action>
+      <StarRating title="the jungle book" genres={exampleGenres} duration={exampleDuration} rating={exampleRating} />
+      <Action info={exampleInfo} />
     </div>
-  )
-}
+  );
+};
 export default movieDetailsPageFooter;

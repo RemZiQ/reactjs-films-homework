@@ -4,13 +4,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import './components/MovieDetailsPage/reset.css';
 import MovieDetailsPage from './components/MovieDetailsPage/index';
-import Nav from './components/MovieDetailsPage__Nav/index';
-import MovieDetailsPageFooter from './components/MovieDetailsPage__Footer/index';
-
 
 
 function component() {
-  render(<MovieDetailsPage/>, document.getElementById('root'));
+  render(<MovieDetailsPage />, document.getElementById('root'));
 }
 
 export default component;

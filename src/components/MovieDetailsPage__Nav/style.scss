@@ -1,4 +1,4 @@
-.pageHeader__nav{
+.pageHeader__nav {
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
@@ -7,20 +7,22 @@
   max-height: 70px;
   padding: 0 100px 0 120px;
 }
-.logo{
-  color: white;
+
+.logo {
   text-transform: uppercase;
   font-size: 50px;
   letter-spacing: 2px;
   line-height: 64px;
-  color: #ffffff;
-  font-family: "Helvetica Neue";
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: 800;
 }
-.nav__form_search{
+
+.nav__form_search {
   position: relative;
 }
-.nav__search{
+
+.nav__search {
   width: 520px;
   max-height: 70px;
   padding: 15px 0 20px 15px;
@@ -30,11 +32,12 @@
   font-size: 28px;
   letter-spacing: 1px;
   line-height: 44px;
-  color: #ffffff;
-  font-family: "Helvetica Neue";
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
   outline: none;
 }
-.nav__search_button{
+
+.nav__search_button {
   position: absolute;
   top: 5px;
   right: 15px;
@@ -45,13 +48,16 @@
   text-align: right;
   border: none;
 }
-.nav__search_button:focus{
+
+.nav__search_button:focus {
   border: none;
   outline: none;
 }
-::-webkit-search-cancel-button{ 
-  -webkit-appearance: none; 
+
+::-webkit-search-cancel-button {
+  -webkit-appearance: none;
 }
+
 .nav__search_button::before {
   content: "\f002";
   font-family: "Font Awesome 5 Free";
