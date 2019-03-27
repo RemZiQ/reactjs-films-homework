@@ -4,16 +4,13 @@ import MovieDetailsPageFooter from '../MovieDetailsPage__Footer/index';
 import './style.scss';
 
 
-class MovieDetailsPage extends React.Component{
-  render(){
+const  MovieDetailsPage = () => {
     return (
       <header className="pageHeader" id="pageHeaderID">
       <MovieDetailsPageNav></MovieDetailsPageNav>
       <MovieDetailsPageFooter></MovieDetailsPageFooter>
       </header>
     )
-  
-  }
 }
 
 export default MovieDetailsPage;
