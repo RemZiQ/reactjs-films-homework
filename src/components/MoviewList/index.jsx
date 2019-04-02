@@ -1,20 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './style.scss';
 import MovieListItem from '../MovieList__Item/index';
+// import state from '../../modules/store';
 
 
-const MoviewList = ({ count }) => {
-  console.log('________!!@W!@!', count)
-  const listOfMovieItems = new Array(count.length).fill(1).map((item, index) => {
-    const a = count[index];
-    return <MovieListItem  imageUrl={a}key={index}/>
-  })
-  console.log('listOfitems______________', listOfMovieItems);
-  return (
-      <div className="moviewList__container">
-        {listOfMovieItems}
-      </div>
-  )
+const MoviewList = ({ count, store }) => {
+  console.log('________store.results', store.data.results);
+  let listOfMovieItems = '';
+  if(store.data.results){
+    listOfMovieItems = store.data.results.map(item => {
+      return <MovieListItem key={item.id} imageUrl={item.poster_path} 
+      title={item.title} genres={item.genre_ids} mark={item.vote_average / 2}/>
+    })
+  }
+  
+return (
+  <div className="moviewList__container">
+  {listOfMovieItems}
+  </div>
+)
 }
 
-export default MoviewList;
+const mapStateToProps = (state) => {
+  return {store: state}
+}
+
+export default connect(mapStateToProps)(MoviewList);
