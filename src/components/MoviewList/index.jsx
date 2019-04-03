@@ -12,7 +12,8 @@ const MoviewList = ({ count, store }) => {
   if(store.data.results){
     listOfMovieItems = store.data.results.map(item => {
       return <MovieListItem key={item.id} imageUrl={item.poster_path} 
-      title={item.title} genres={item.genre_ids} mark={item.vote_average / 2}/>
+      title={item.title} genres={item.genre_ids} mark={item.vote_average / 2}
+      id ={item.id} overview={item.overview}/>
     })
   }
   
