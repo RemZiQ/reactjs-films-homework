@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import store from '../../modules/store';
+import {getTrailer} from '../../modules/module_Search/actions';
 import './style.scss';
 
-const MovieListItem = ({imageUrl, title, genres, mark, id, overview}) => {
+const MovieListItem = ({imageUrl, title, genres, mark, id, overview, fetchTrailer}) => {
   const addClass = () => {
     const elem = document.getElementById(`${id}`);  
     elem.classList.add('movieList__item_buttons_container_show');
@@ -34,6 +36,12 @@ const MovieListItem = ({imageUrl, title, genres, mark, id, overview}) => {
     const bg = document.getElementById(`bg${id}`);
     bg.classList.remove('movieList__item_bg_overview');
   }
+  const hideTrailer =  () => {
+    const elem = document.getElementById(`trailerContainer${id}`);
+    elem.classList.remove('movieList__item__trailerContainerShow');
+    // const frame =document.getElementsByName('trailer');
+    // frame.innerHTML = '';
+  }
   const style = {
     backgroundImage: `url(https://image.tmdb.org/t/p/original${imageUrl})`
   }
@@ -50,9 +58,13 @@ const MovieListItem = ({imageUrl, title, genres, mark, id, overview}) => {
   return (
     <div className='movieList__item'>
       <div onMouseOver={addClass} onMouseOut={removeClass} style={style} className='movieList__item_bg' id={`bg${id}`}>
+      <div className='movieList__item__trailerContainer' id={`trailerContainer${id}`}>
+        <button onClick={hideTrailer}>close</button>
+        <iframe name="trailer" width='1080' height='760' frameBorder="0" allowFullScreen className='movieList__item__trailer'></iframe>
+      </div>
         <div className='movieList__item_buttons_container' id={`${id}`}>
           <div className='movieList__item__button_watch_container'>
-              <button type='button' className='movieList__item__button_watch'></button>
+              <button onClick={fetchTrailer} type='button' className='movieList__item__button_watch' id={id}></button>
               <p>Watch now</p>
             </div>
             <button onClick={showOverview} type='button' className='movieList__item__button_view'>View info</button>
@@ -67,7 +79,7 @@ const MovieListItem = ({imageUrl, title, genres, mark, id, overview}) => {
             <ul className='movieList__item_genresList'>{listOfGenres}</ul>
           </div>
           <div className='movieList__item__overviewDetails'>{overview}</div>
-          <button type="button" className="action__watch overview__watch">Watch now</button>
+          <button onClick={fetchTrailer} type="button" className="action__watch overview__watch">Watch now</button>
         </div>
       </div>
       <div className='movieList__item__mainInfo' id={`mainInfo${id}`}>
@@ -79,4 +91,17 @@ const MovieListItem = ({imageUrl, title, genres, mark, id, overview}) => {
   )
 }
 
-export default MovieListItem;
+const mapStateToProps = (state) => {
+  return {store: state}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchTrailer: (e) => {
+      e.preventDefault();
+      dispatch(getTrailer(e));
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieListItem);

@@ -23,3 +23,15 @@ export const getGenres = () => {
       .then(response => response.json()).then(data => dispatch(fetchGenres(data)));
   }
 }
+
+export const getTrailer = (e) => {
+  const id =  e.target.id;
+  fetch(`http://api.themoviedb.org/3/movie/${id}/videos?api_key=549663e4fb316b398fa37766692d00b7`)
+    .then(response => response.json()).then(data => {
+      const elem = document.getElementById(`trailerContainer${id}`);
+      elem.classList.add('movieList__item__trailerContainerShow');
+      console.log(`https://www.youtube.com/embed/${data.results[0].key}`);
+      window.open(`https://www.youtube.com/embed/${data.results[0].key}`, 'trailer')
+    });
+  return {type: 'nope'};
+}

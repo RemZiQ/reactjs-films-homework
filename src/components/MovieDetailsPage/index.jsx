@@ -4,9 +4,9 @@ import MovieDetailsPageFooter from '../MovieDetailsPage__Footer/index';
 import './style.scss';
 
 
-const MovieDetailsPage = ({onSearch}) => (
+const MovieDetailsPage = () => (
   <header className="pageHeader" id="pageHeaderID">
-    <MovieDetailsPageNav onSearch={onSearch}/>
+    <MovieDetailsPageNav />
     <MovieDetailsPageFooter />
   </header>
 );

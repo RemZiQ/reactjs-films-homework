@@ -160,3 +160,25 @@
   position: absolute;
   bottom: 75px;
 }
+
+// trailer
+
+.movieList__item__trailerContainer{
+  position: relative;
+  display: none;
+  width: 1200px;
+  height: 900px;
+  margin: 0 auto;
+  border: 1px solid grey;
+  background-color:rgb(216, 216, 216);
+  z-index: 99;
+}
+.movieList__item__trailerContainerShow{
+  display: block;
+}
+.movieList__item__trailer{
+ position: absolute;
+ top: 70px;
+ left: 60px;
+ z-index: 100;
+}
