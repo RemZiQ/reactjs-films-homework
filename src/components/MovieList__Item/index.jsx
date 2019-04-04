@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import store from '../../modules/store';
 import {getTrailer} from '../../modules/module_Search/actions';
+import Trailer from '../MovieList__Item_Trailer/index';
 import './style.scss';
 
 const MovieListItem = ({imageUrl, title, genres, mark, id, overview, fetchTrailer}) => {
@@ -58,10 +59,7 @@ const MovieListItem = ({imageUrl, title, genres, mark, id, overview, fetchTraile
   return (
     <div className='movieList__item'>
       <div onMouseOver={addClass} onMouseOut={removeClass} style={style} className='movieList__item_bg' id={`bg${id}`}>
-      <div className='movieList__item__trailerContainer' id={`trailerContainer${id}`}>
-        <button onClick={hideTrailer}>close</button>
-        <iframe name="trailer" width='1080' height='760' frameBorder="0" allowFullScreen className='movieList__item__trailer'></iframe>
-      </div>
+      <Trailer id={id}></Trailer>
         <div className='movieList__item_buttons_container' id={`${id}`}>
           <div className='movieList__item__button_watch_container'>
               <button onClick={fetchTrailer} type='button' className='movieList__item__button_watch' id={id}></button>
