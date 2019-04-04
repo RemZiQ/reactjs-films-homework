@@ -40,8 +40,6 @@ const MovieListItem = ({imageUrl, title, genres, mark, id, overview, fetchTraile
   const hideTrailer =  () => {
     const elem = document.getElementById(`trailerContainer${id}`);
     elem.classList.remove('movieList__item__trailerContainerShow');
-    // const frame =document.getElementsByName('trailer');
-    // frame.innerHTML = '';
   }
   const style = {
     backgroundImage: `url(https://image.tmdb.org/t/p/original${imageUrl})`
