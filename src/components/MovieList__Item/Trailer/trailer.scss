@@ -1,0 +1,13 @@
+.movieList__item__trailer{
+  position: relative;
+  width: 1200px;
+  height: 900px;
+  padding: 25px;
+  background-color: gray;
+  z-index: 100;
+}
+.movieList__item__trailer_closeButton{
+  display: block;
+  margin-left: 70%;
+  margin-bottom: 10%;
+}
