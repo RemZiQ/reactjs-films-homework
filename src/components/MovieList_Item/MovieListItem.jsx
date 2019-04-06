@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import MainInfo from './MovieListItemMainInfo/MovieListItemMainInfo';
-import ButtonsHover from './ButtonsHover/ButtonHover';
-import Overview from './Overwiew/Overview';
-import Trailer from './Trailer/Trailer';
-import store from '../../modules/store';
+import MainInfo from './MovieListItemMainInfo';
+import ButtonsHover from './ButtonsHover';
+import Overview from './Overwiew';
+import Trailer from './Trailer';
 import { getTrailer } from '../../modules/module_Search/actions';
 import './movieListItem.scss';
 
