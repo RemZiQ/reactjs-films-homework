@@ -62,7 +62,7 @@ class MovieListItem extends Component {
     const style = {
       backgroundImage: `url(https://image.tmdb.org/t/p/original${this.props.imageUrl})`,
     };
-    if (this.state.visibleButtons && !this.state.visibleOverview) {
+    if (this.state.visibleButtons && !this.state.visibleOverview && !this.state.showTrailer) {
       return (
         <div onMouseOver={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
           <div ref={(div) => { this.itemBG = div; }} style={style} className="movieList__item_bg" id={`bg${this.props.id}`}>
@@ -89,6 +89,10 @@ class MovieListItem extends Component {
               id={this.props.id}
               overview={this.props.overview}
               handle={this.handleClickForOverview}
+              handleForFetchTrailer={this.props.fetchTrailer}
+              handleForOpenModal={this.handleShowTrailer}
+              // must be delete
+              state = {this.state}
             />
           </div>
         </div>
