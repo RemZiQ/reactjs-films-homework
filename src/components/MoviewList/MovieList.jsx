@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './style.scss';
-import MovieListItem from '../MovieList_Item';
+import MovieListItem from '../MovieListItem';
 // import state from '../../modules/store';
 
 

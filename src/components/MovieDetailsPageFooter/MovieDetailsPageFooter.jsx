@@ -1,7 +1,8 @@
 import React from 'react';
-import './style.scss';
-import StarRating from '../MovieDetailsPage__StarRating/index';
-import Action from '../MovieDetailsPage__Action/index';
+
+import StarRating from '../MovieDetailsPageStarRating';
+import Action from '../MovieDetailsPageAction';
+import './movieDetailsPageFooter.scss';
 
 const movieDetailsPageFooter = () => {
   const exampleInfo = `There are growing dangers in the

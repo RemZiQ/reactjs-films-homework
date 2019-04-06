@@ -8,7 +8,7 @@ const ButtonHover = ({
   const handle = (e) => {
     handleShowTrailer();
     fetchTrailer(e);
-  }
+  };
   return (
     <div className="movieList__item_buttons_container" id={`${id}`}>
       <div className="movieList__item__button_watch_container">
@@ -23,6 +23,6 @@ const ButtonHover = ({
       <button onClick={handleOpenOverview} type="button" className="movieList__item__button_view">View info</button>
     </div>
   );
-}
+};
 
 export default ButtonHover;

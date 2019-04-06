@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import MainInfo from './MovieListItemMainInfo';
+import MainInfo from './MainInfo';
 import ButtonsHover from './ButtonsHover';
 import Overview from './Overwiew';
 import Trailer from './Trailer';
@@ -90,8 +90,6 @@ class MovieListItem extends Component {
               handle={this.handleClickForOverview}
               handleForFetchTrailer={this.props.fetchTrailer}
               handleForOpenModal={this.handleShowTrailer}
-              // must be delete
-              state = {this.state}
             />
           </div>
         </div>

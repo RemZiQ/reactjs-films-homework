@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './action.scss';
 
 const Action = ({ info }) => (
   <div className="action_container">

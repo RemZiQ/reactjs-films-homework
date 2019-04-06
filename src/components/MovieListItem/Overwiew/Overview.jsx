@@ -1,20 +1,19 @@
 import React from 'react';
-import MainInfo from '../MovieListItemMainInfo/MovieListItemMainInfo';
 
+import MainInfo from '../MainInfo';
 import './overview.scss';
 
 
 const Overview = ({
-  id, overview, title, mark, genres, handleClose,handleForFetchTrailer,handleForOpenModal, state
+  id, overview, title, mark, genres, handleClose, handleForFetchTrailer, handleForOpenModal, state,
 }) => {
   const handleForTrailer = (e) => {
     handleClose();
     handleForFetchTrailer(e);
     handleForOpenModal();
-  }
+  };
   return (
     <div className="movieList__item__overview" id={`overview${id}`}>
-    {console.log('currentState', state)}
       <button onClick={handleClose} type="submit" className="movieList__item__closeOverview" id={`closeOverview${id}`}>
         <i className="fas fa-times" />
       </button>
@@ -23,6 +22,6 @@ const Overview = ({
       <button onClick={handleForTrailer} type="button" className="action__watch overview__watch" id={id}>Watch now</button>
     </div>
   );
-}
+};
 
 export default Overview;

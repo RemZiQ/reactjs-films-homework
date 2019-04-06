@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 
 import './components/MovieDetailsPage/reset.css';
-import MovieDetailsPage from './components/MovieDetailsPage/index';
+import MovieDetailsPage from './components/MovieDetailsPage';
 import MovieList from './components/MoviewList';
 import store from './modules/store';
 

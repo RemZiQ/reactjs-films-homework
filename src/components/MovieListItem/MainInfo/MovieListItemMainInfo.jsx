@@ -21,9 +21,4 @@ const MainInfo = ({ title, mark, genres }) => {
   );
 };
 
-// const mapStateToProps = (store) => {
-//   return {store: store}
-// }
-// export default connect(mapStateToProps)(MainInfo);
-
 export default MainInfo;

@@ -1,7 +1,7 @@
 import React from 'react';
-import MovieDetailsPageNav from '../MovieDetailsPage__Nav/index';
-import MovieDetailsPageFooter from '../MovieDetailsPage__Footer/index';
-import './style.scss';
+import MovieDetailsPageNav from '../MovieDetailsPageNav';
+import MovieDetailsPageFooter from '../MovieDetailsPageFooter';
+import './movieDetailsPage.scss';
 
 
 const MovieDetailsPage = () => (
