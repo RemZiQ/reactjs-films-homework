@@ -1,13 +1,32 @@
 .movieList__item__trailer{
   position: relative;
-  width: 1200px;
-  height: 900px;
-  padding: 25px;
-  background-color: gray;
+  box-sizing: border-box;
+  width: 750px;
+  height: 600px;
+  padding: 25px 25px 25px 35px;
+  background-color: rgba(0, 0, 0, 0.774);
   z-index: 100;
 }
+
 .movieList__item__trailer_closeButton{
   display: block;
-  margin-left: 70%;
-  margin-bottom: 10%;
+  margin-left: 95%;
+  margin-bottom: 15px;
+}
+
+.movieList__item__trailer_closeButton{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  outline: none;
+  color: white;
+}
+.movieList__item__trailer_closeButton:active{
+  color: rgb(105, 103, 103);
+}
+.movieList__item__trailer_closeButton .fa-times{
+  font-size: 25px;
 }

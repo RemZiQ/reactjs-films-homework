@@ -6,8 +6,10 @@ import './trailer.scss';
 const Trailer = ({ handle, trailer}) => {
   return (
     <div className="movieList__item__trailer">
-      <button onClick={handle} className="movieList__item__trailer_closeButton">close</button>
-      <iframe style={{ backgroundColor: '#F6BB42' }} name="trailer" width="1080" height="760" frameBorder="0" allowFullScreen src={trailer} />
+      <button onClick={handle} className="movieList__item__trailer_closeButton">
+        <i className="fas fa-times" />
+      </button>
+      <iframe style={{ backgroundColor: '#000' }} name="trailer" width="640" height="480" frameBorder="0" allowFullScreen src={trailer} />
     </div>
   );
 };
