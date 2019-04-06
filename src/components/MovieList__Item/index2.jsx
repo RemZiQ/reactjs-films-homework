@@ -50,11 +50,9 @@ class MovieListItem extends Component {
   }
 
   handleShowTrailer() {
-    console.log(this.state.showTrailer);
     this.setState(state => ({
-      showTrailer: true,
+      showTrailer: !this.state.showTrailer,
     }));
-    console.log('_____________________', this.state.showTrailer);
     this.setState(state => ({
       visibleButtons: false,
     }));

@@ -1,17 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 import './trailer.scss';
 
-const Trailer = ({ handle }) => {
-  const example = () => {
-    console.log(222);
-  };
+const Trailer = ({ handle, trailer}) => {
   return (
     <div className="movieList__item__trailer">
-      <button onClick={handle} onClick={example} className="movieList__item__trailer_closeButton">close</button>
-      <iframe style={{ backgroundColor: '#F6BB42' }} name="trailer" width="1080" height="760" frameBorder="0" allowFullScreen src="2133213" />
+      <button onClick={handle} className="movieList__item__trailer_closeButton">close</button>
+      <iframe style={{ backgroundColor: '#F6BB42' }} name="trailer" width="1080" height="760" frameBorder="0" allowFullScreen src={trailer} />
     </div>
   );
 };
 
-export default Trailer;
+const mapStateToProps = state => ({ trailer: state.currentTrailer });
+
+export default connect(mapStateToProps)(Trailer);
