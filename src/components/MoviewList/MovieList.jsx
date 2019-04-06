@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './style.scss';
+import './movieList.scss';
 import MovieListItem from '../MovieListItem';
-// import state from '../../modules/store';
 
 
-const MoviewList = ({ count, store }) => {
+const MoviewList = ({ store }) => {
   let listOfMovieItems = '';
   if (store.data.results) {
     listOfMovieItems = store.data.results.map(item => (
