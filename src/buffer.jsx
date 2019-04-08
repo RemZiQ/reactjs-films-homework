@@ -6,14 +6,12 @@ import { Provider } from 'react-redux';
 
 
 import './components/MovieDetailsPage/reset.css';
-import MovieDetailsPage from './components/MovieDetailsPage';
-import MovieList from './components/MoviewList';
+import App from './App';
 import store from './modules/store';
 
 
 const component = () => {
-  render(<Provider store={store}><MovieDetailsPage /></Provider>, document.getElementById('root'));
-  render(<Provider store={store}><MovieList /></Provider>, document.getElementById('root2'));
+  render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 };
 
 component();
