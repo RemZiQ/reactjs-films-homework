@@ -31,10 +31,14 @@ h1 {
 
 .starRating__genres li {
   display: inline-flex;
+}
+.starRating__genres li button{
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
   font-size: 24px;
   letter-spacing: 1px;
   line-height: 44px;
-  color: #fff;
   font-family: "Helvetica Neue", sans-serif;
 }
 

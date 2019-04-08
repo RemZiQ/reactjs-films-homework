@@ -6,7 +6,7 @@ import './style.scss';
 const Signature = ({ name }) => <h1>{name}</h1>;
 
 Signature.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
 };
 
 export default Signature;

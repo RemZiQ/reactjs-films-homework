@@ -1,3 +1,3 @@
-import Trailer from './Trailer.jsx';
+import Trailer from './Trailer';
 
-export default  Trailer;
+export default Trailer;

@@ -1,16 +1,16 @@
 const initialState = {
   data: {},
-  genres: []
-}
+  genres: [],
+};
 
-function reducer(state=initialState, action){
-  switch(action.type){
-    case "FETCH__DATA":
-      return Object.assign({}, state, {data: action.data});
-    case "FETCH_GENRES":
-      return Object.assign({}, state,  {genres: [...action.genres.genres]});
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case 'FETCH__DATA':
+      return Object.assign({}, state, { data: action.data });
+    case 'FETCH_GENRES':
+      return Object.assign({}, state, { genres: [...action.genres.genres] });
     case 'FETCH_TRAILER':
-      return Object.assign({}, state,  {currentTrailer: action.url});
+      return Object.assign({}, state, { currentTrailer: action.url });
     default: return state;
   }
 }

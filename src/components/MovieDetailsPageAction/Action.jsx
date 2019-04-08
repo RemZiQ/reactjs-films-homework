@@ -1,5 +1,6 @@
 import React from 'react';
 import './action.scss';
+import propTypes from 'prop-types';
 
 const Action = ({ info }) => (
   <div className="action_container">
@@ -10,4 +11,13 @@ const Action = ({ info }) => (
     </div>
   </div>
 );
+
+Action.propTypes = {
+  info: propTypes.string,
+};
+
+Action.defaultProps = {
+  info: 'Sorry, no information here',
+};
+
 export default Action;

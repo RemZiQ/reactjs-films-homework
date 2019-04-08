@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import MainInfo from './MainInfo';
 import ButtonsHover from './ButtonsHover';
@@ -20,98 +21,127 @@ class MovieListItem extends Component {
     this.handleShowTrailer = this.handleShowTrailer.bind(this);
   }
 
-  handleVisibleButtons(e) {
-    if (!this.state.showTrailer) {
-      this.setState(state => ({
+  handleVisibleButtons() {
+    const { showTrailer } = this.state;
+    if (!showTrailer) {
+      this.setState(() => ({
         visibleButtons: true,
       }));
     }
   }
 
-  handleUnvisibleButtons(e) {
-    this.setState(state => ({
+  handleUnvisibleButtons() {
+    this.setState(() => ({
       visibleButtons: false,
     }));
   }
 
   handleClickForOverview() {
-    this.setState(state => ({
+    this.setState(() => ({
       visibleOverview: true,
     }));
     this.itemBG.classList.add('movieList__item_bgOverwiew');
   }
 
   handleCloseOverview() {
-    this.setState(state => ({
+    this.setState(() => ({
       visibleOverview: false,
     }));
     this.itemBG2.classList.remove('movieList__item_bgOverwiew');
   }
 
   handleShowTrailer() {
-    this.setState(state => ({
-      showTrailer: !this.state.showTrailer,
+    const { showTrailer } = this.state;
+    this.setState(() => ({
+      showTrailer: !showTrailer,
     }));
-    this.setState(state => ({
+    this.setState(() => ({
       visibleButtons: false,
     }));
   }
 
   render() {
+    const { visibleButtons, visibleOverview, showTrailer } = this.state;
+    const {
+      fetchTrailer,
+      id,
+      title,
+      mark,
+      genres,
+      overview,
+      imageUrl,
+    } = this.props;
     const style = {
-      backgroundImage: `url(https://image.tmdb.org/t/p/original${this.props.imageUrl})`,
+      backgroundImage: `url(https://image.tmdb.org/t/p/original${imageUrl})`,
     };
-    if (this.state.visibleButtons && !this.state.visibleOverview && !this.state.showTrailer) {
+    if (visibleButtons && !visibleOverview && !showTrailer) {
       return (
-        <div onMouseOver={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
-          <div ref={(div) => { this.itemBG = div; }} style={style} className="movieList__item_bg" id={`bg${this.props.id}`}>
+        <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
+          <div ref={(div) => { this.itemBG = div; }} style={style} className="movieList__item_bg" id={`bg${id}`}>
             <ButtonsHover
               state={this.state}
               handleShowTrailer={this.handleShowTrailer}
-              fetchTrailer={this.props.fetchTrailer}
+              fetchTrailer={fetchTrailer}
               handleOpenOverview={this.handleClickForOverview}
-              id={this.props.id}
+              id={id}
             />
           </div>
-          <MainInfo title={this.props.title} mark={this.props.mark} genres={this.props.genres} />
+          <MainInfo title={title} mark={mark} genres={genres} />
         </div>
       );
-    } if (this.state.visibleOverview) {
+    } if (visibleOverview) {
       return (
-        <div onMouseOver={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
-          <div ref={(div) => { this.itemBG2 = div; }} style={style} className="movieList__item_bg" id={`bg${this.props.id}`}>
+        <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
+          <div ref={(div) => { this.itemBG2 = div; }} style={style} className="movieList__item_bg" id={`bg${id}`}>
             <Overview
               handleClose={this.handleCloseOverview}
-              title={this.props.title}
-              mark={this.props.mark}
-              genres={this.props.genres}
-              id={this.props.id}
-              overview={this.props.overview}
+              title={title}
+              mark={mark}
+              genres={genres}
+              id={id}
+              overview={overview}
               handle={this.handleClickForOverview}
-              handleForFetchTrailer={this.props.fetchTrailer}
+              handleForFetchTrailer={fetchTrailer}
               handleForOpenModal={this.handleShowTrailer}
             />
           </div>
         </div>
       );
-    } if (this.state.showTrailer) {
+    } if (showTrailer) {
       return (
-        <div onMouseOver={this.handleVisibleButtons} className="movieList__item">
-          <div style={style} className="movieList__item_bg" id={`bg${this.props.id}`}>
-            <Trailer handle={this.handleShowTrailer} />
+        <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
+          <div style={style} className="movieList__item_bg" id={`bg${id}`}>
+            <Trailer handle={this.handleShowTrailer} id={id} />
           </div>
-          <MainInfo title={this.props.title} mark={this.props.mark} genres={this.props.genres} />
+          <MainInfo title={title} mark={mark} genres={genres} />
         </div>
       );
     }
     return (
-      <div onMouseOver={this.handleVisibleButtons} className="movieList__item">
-        <div style={style} className="movieList__item_bg" id={`bg${this.props.id}`} />
-        <MainInfo title={this.props.title} mark={this.props.mark} genres={this.props.genres} />
+      <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
+        <div style={style} className="movieList__item_bg" id={`bg${id}`} />
+        <MainInfo title={title} mark={mark} genres={genres} />
       </div>
     );
   }
 }
+
+
+MovieListItem.propTypes = {
+  fetchTrailer: propTypes.func.isRequired,
+  id: propTypes.number.isRequired,
+  title: propTypes.string,
+  mark: propTypes.number,
+  genres: propTypes.arrayOf(propTypes.number).isRequired,
+  overview: propTypes.string,
+  imageUrl: propTypes.string.isRequired,
+};
+
+MovieListItem.defaultProps = {
+  title: 'Sorry here is no title',
+  mark: 1,
+  overview: 'Sorry here is no info',
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchTrailer: (e) => {

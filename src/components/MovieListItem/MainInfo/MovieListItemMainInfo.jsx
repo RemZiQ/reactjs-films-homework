@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import store from '../../../modules/store';
 import './mainInfo.scss';
@@ -20,5 +21,18 @@ const MainInfo = ({ title, mark, genres }) => {
     </div>
   );
 };
+
+
+MainInfo.propTypes = {
+  title: propTypes.string,
+  mark: propTypes.number,
+  genres: propTypes.arrayOf(propTypes.number).isRequired,
+};
+
+MainInfo.defaultProps = {
+  title: 'Sorry, no title here',
+  mark: 'Sorry, no mark here',
+};
+
 
 export default MainInfo;

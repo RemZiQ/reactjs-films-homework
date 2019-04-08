@@ -1,5 +1,8 @@
 import React from 'react';
+import propTypes from 'prop-types';
+
 import './starRating.scss';
+
 
 const StarRating = ({
   title, duration, rating, genres,
@@ -10,7 +13,7 @@ const StarRating = ({
   };
   const countOfStars = Math.round(rating);
   const listGenres = genres
-    .map((item, index) => <li key={index}><a onClick={handling}>{item}</a></li>);
+    .map((item, index) => <li key={index}><button type="submit" onClick={handling}>{item}</button></li>);
   const stars = new Array(countOfStars).fill(1).map((item, index) => <li key={index}><i className="fas fa-star" /></li>);
   return (
     <div className="starRating_container">
@@ -37,4 +40,21 @@ const StarRating = ({
   );
 };
 
+
+StarRating.propTypes = {
+  title: propTypes.string,
+  duration: propTypes.string,
+  rating: propTypes.number,
+  genres: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.number),
+    propTypes.arrayOf(propTypes.string),
+  ]),
+};
+
+StarRating.defaultProps = {
+  title: 'Sorry, no title here',
+  duration: 'Sorry, no duration here',
+  rating: 1,
+  genres: [99],
+};
 export default StarRating;

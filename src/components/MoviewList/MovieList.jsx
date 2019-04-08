@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import './movieList.scss';
 import MovieListItem from '../MovieListItem';
@@ -26,6 +27,13 @@ const MoviewList = ({ store }) => {
       {listOfMovieItems}
     </div>
   );
+};
+
+
+MoviewList.propTypes = {
+  store: propTypes.objectOf(
+    propTypes.any,
+  ).isRequired,
 };
 
 const mapStateToProps = state => ({ store: state });

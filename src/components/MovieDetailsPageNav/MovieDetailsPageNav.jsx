@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import { getFilms, getGenres } from '../../modules/module_Search/actions';
 import store from '../../modules/store';
@@ -7,7 +8,7 @@ import store from '../../modules/store';
 import './movieDetailsPageNav.scss';
 
 
-const Nav = ({ fetchData, store }) => (
+const Nav = ({ fetchData }) => (
   <nav className="pageHeader__nav">
     <div className="logo">films</div>
     <form action="" method="get" className="nav__form_search">
@@ -16,6 +17,11 @@ const Nav = ({ fetchData, store }) => (
     </form>
   </nav>
 );
+
+
+Nav.propTypes = {
+  fetchData: propTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({ store: state });
 const mapDispatchToProps = dispatch => ({
