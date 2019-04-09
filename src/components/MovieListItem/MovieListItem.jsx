@@ -14,11 +14,6 @@ class MovieListItem extends Component {
   constructor(props) {
     super(props);
     this.state = { visibleOverview: false, visibleButtons: false, showTrailer: false };
-    // this.handleClickForOverview = this.handleClickForOverview.bind(this);
-    // // this.handleVisibleButtons = this.handleVisibleButtons.bind(this);
-    // this.handleUnvisibleButtons = this.handleUnvisibleButtons.bind(this);
-    // this.handleCloseOverview = this.handleCloseOverview.bind(this);
-    // this.handleShowTrailer = this.handleShowTrailer.bind(this);
   }
 
   handleVisibleButtons = () => {
@@ -40,14 +35,12 @@ class MovieListItem extends Component {
     this.setState(() => ({
       visibleOverview: true,
     }));
-    this.itemBG.classList.add('movieList__item_bgOverwiew');
   }
 
   handleCloseOverview = () => {
     this.setState(() => ({
       visibleOverview: false,
     }));
-    this.itemBG2.classList.remove('movieList__item_bgOverwiew');
   }
 
   handleShowTrailer = () => {
@@ -90,7 +83,8 @@ class MovieListItem extends Component {
     } if (visibleOverview) {
       return (
         <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
-          <div ref={(div) => { this.itemBG2 = div; }} style={style} className="movieList__item_bg" id={`bg${id}`}>
+          <div ref={(div) => { this.itemBG2 = div; }} style={style} 
+          className={visibleOverview ? "movieList__item_bgOverwiew" : "movieList__item_bg"} id={`bg${id}`}>
             <Overview
               handleClose={this.handleCloseOverview}
               title={title}
