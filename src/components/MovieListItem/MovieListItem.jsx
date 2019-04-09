@@ -14,14 +14,14 @@ class MovieListItem extends Component {
   constructor(props) {
     super(props);
     this.state = { visibleOverview: false, visibleButtons: false, showTrailer: false };
-    this.handleClickForOverview = this.handleClickForOverview.bind(this);
-    this.handleVisibleButtons = this.handleVisibleButtons.bind(this);
-    this.handleUnvisibleButtons = this.handleUnvisibleButtons.bind(this);
-    this.handleCloseOverview = this.handleCloseOverview.bind(this);
-    this.handleShowTrailer = this.handleShowTrailer.bind(this);
+    // this.handleClickForOverview = this.handleClickForOverview.bind(this);
+    // // this.handleVisibleButtons = this.handleVisibleButtons.bind(this);
+    // this.handleUnvisibleButtons = this.handleUnvisibleButtons.bind(this);
+    // this.handleCloseOverview = this.handleCloseOverview.bind(this);
+    // this.handleShowTrailer = this.handleShowTrailer.bind(this);
   }
 
-  handleVisibleButtons() {
+  handleVisibleButtons = () => {
     const { showTrailer } = this.state;
     if (!showTrailer) {
       this.setState(() => ({
@@ -30,32 +30,30 @@ class MovieListItem extends Component {
     }
   }
 
-  handleUnvisibleButtons() {
+  handleUnvisibleButtons = () => {
     this.setState(() => ({
       visibleButtons: false,
     }));
   }
 
-  handleClickForOverview() {
+  handleClickForOverview = () => {
     this.setState(() => ({
       visibleOverview: true,
     }));
     this.itemBG.classList.add('movieList__item_bgOverwiew');
   }
 
-  handleCloseOverview() {
+  handleCloseOverview = () => {
     this.setState(() => ({
       visibleOverview: false,
     }));
     this.itemBG2.classList.remove('movieList__item_bgOverwiew');
   }
 
-  handleShowTrailer() {
+  handleShowTrailer = () => {
     const { showTrailer } = this.state;
     this.setState(() => ({
       showTrailer: !showTrailer,
-    }));
-    this.setState(() => ({
       visibleButtons: false,
     }));
   }
