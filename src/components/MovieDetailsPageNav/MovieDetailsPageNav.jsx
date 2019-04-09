@@ -3,35 +3,43 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
 import { getFilms, getGenres } from '../../modules/module_Search/actions';
-import store from '../../modules/store';
 
 import './movieDetailsPageNav.scss';
 
 
-const Nav = ({ fetchData }) => (
-  <nav className="pageHeader__nav">
-    <div className="logo">films</div>
-    <form method="get" className="nav__form_search">
-      <input type="search" className="nav__search" id="searchInputID" />
-      <button onClick={fetchData} type="submit" className="nav__search_button" />
-    </form>
-  </nav>
-);
+const Nav = ({ fetchData, fetchGengres, genres }) => {
+  const fetchFilmsAndGenres = (e) => {
+    e.preventDefault();
+    if (!genres.length) {
+      fetchGengres();
+    }
+    fetchData();
+  };
+  return (
+    <nav className="pageHeader__nav">
+      <div className="logo">films</div>
+      <form method="get" className="nav__form_search">
+        <input type="search" className="nav__search" id="searchInputID" />
+        <button onClick={fetchFilmsAndGenres} type="submit" className="nav__search_button" />
+      </form>
+    </nav>
+  );
+};
 
 
 Nav.propTypes = {
   fetchData: propTypes.func.isRequired,
+  fetchGengres: propTypes.func.isRequired,
+  genres: propTypes.arrayOf(propTypes.object).isRequired,
 };
 
-const mapStateToProps = state => ({ store: state });
+const mapStateToProps = store => ({ genres: store.genres });
 const mapDispatchToProps = dispatch => ({
-  fetchData: (e) => {
-    e.preventDefault();
+  fetchData: () => {
     dispatch(getFilms());
-
-    if (!store.getState().genres.length) {
-      dispatch(getGenres());
-    }
+  },
+  fetchGengres: () => {
+    dispatch(getGenres());
   },
 });
 

@@ -1,3 +1,1 @@
-import MainInfo from './MovieListItemMainInfo';
-
-export default MainInfo;
+export {default} from './MovieListItemMainInfo';

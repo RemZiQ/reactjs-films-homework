@@ -1,14 +1,16 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import store from '../../../modules/store';
 import './mainInfo.scss';
 
 
-const MainInfo = ({ title, mark, genres }) => {
-  const mapGenres = store.getState().genres;
+const MainInfo = ({
+  title, mark, genres, storeGenres,
+}) => {
+  const mapGenres = storeGenres;
   let listOfGenres = '';
-  if (store.getState().genres.length) {
+  if (storeGenres.length) {
     listOfGenres = genres.map(item => (
       <li key={item}>{mapGenres.filter(elem => elem.id === item)[0].name}</li>
     ));
@@ -27,6 +29,7 @@ MainInfo.propTypes = {
   title: propTypes.string,
   mark: propTypes.number,
   genres: propTypes.arrayOf(propTypes.number).isRequired,
+  storeGenres: propTypes.arrayOf(propTypes.object).isRequired,
 };
 
 MainInfo.defaultProps = {
@@ -35,4 +38,8 @@ MainInfo.defaultProps = {
 };
 
 
-export default MainInfo;
+const mapStateToProps = store => ({ storeGenres: store.genres });
+
+export default connect(
+  mapStateToProps, null,
+)(MainInfo);
