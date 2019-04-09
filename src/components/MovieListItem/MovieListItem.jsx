@@ -66,6 +66,7 @@ class MovieListItem extends Component {
       genres,
       overview,
       imageUrl,
+      trailer,
     } = this.props;
     const style = {
       backgroundImage: `url(https://image.tmdb.org/t/p/original${imageUrl})`,
@@ -74,6 +75,7 @@ class MovieListItem extends Component {
       return (
         <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
           <div style={style} className="movieList__item_bg" id={`bg${id}`}>
+          {console.log('firstTime', this.state.showTrailer)}
             <ButtonsHover
               state={this.state}
               handleShowTrailer={this.handleShowTrailer}
@@ -104,16 +106,32 @@ class MovieListItem extends Component {
           </div>
         </div>
       );
-    } if (showTrailer) {
-      return (
-        <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
-          <div style={style} className="movieList__item_bg" id={`bg${id}`}>
-            <Trailer handle={this.handleShowTrailer} id={id} />
+    // } if (showTrailer) {
+    //   return (
+    //     <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
+    //       <div style={style} className="movieList__item_bg" id={`bg${id}`}>
+    //         <Trailer handle={this.handleShowTrailer} id={id} />
+    //       </div>
+    //       <MainInfo title={title} mark={mark} genres={genres} />
+    //     </div>
+    //   );
+    // }
+      }  if (showTrailer) {
+        return (
+          <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
+            <div style={style} className="movieList__item_bg" id={`bg${id}`}>
+              <Trailer >
+              {console.log('secondTieme__', this.state.showTrailer)}
+                <div className="Trailer">
+                  <button  onClick={this.handleShowTrailer} id={id} >CLOSE TRAILER</button>
+                  <video src={trailer}></video>
+                </div>
+              </Trailer>
+            </div>
+            <MainInfo title={title} mark={mark} genres={genres} />
           </div>
-          <MainInfo title={title} mark={mark} genres={genres} />
-        </div>
-      );
-    }
+        );
+      }
     return (
       <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
         <div style={style} className="movieList__item_bg" id={`bg${id}`} />
@@ -140,10 +158,13 @@ MovieListItem.defaultProps = {
   overview: 'Sorry here is no info',
 };
 
+
+const mapStateToProps = state => ({ trailer: state.currentTrailer });
+
 const mapDispatchToProps = dispatch => ({
   fetchTrailer: (id) => {
     dispatch(getTrailer(id));
   },
 });
 
-export default connect(null, mapDispatchToProps)(MovieListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieListItem);
