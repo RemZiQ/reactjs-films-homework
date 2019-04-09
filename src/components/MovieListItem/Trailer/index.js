@@ -1,3 +1,1 @@
-import Trailer from './Trailer';
-
-export default Trailer;
+export { default } from './Trailer';

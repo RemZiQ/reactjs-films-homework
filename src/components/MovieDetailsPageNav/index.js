@@ -1,3 +1,1 @@
-import MovieDetailsPageNav from './MovieDetailsPageNav';
-
-export default MovieDetailsPageNav;
+export { default } from './MovieDetailsPageNav';

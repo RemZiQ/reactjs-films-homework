@@ -1,3 +1,1 @@
-import MovieDetailsPageFooter from './MovieDetailsPageFooter';
-
-export default MovieDetailsPageFooter;
+export { default } from './MovieDetailsPageFooter';

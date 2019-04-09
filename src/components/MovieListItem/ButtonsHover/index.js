@@ -1,3 +1,1 @@
-import ButtonsHover from './ButtonHover';
-
-export default ButtonsHover;
+export { default } from './ButtonHover';

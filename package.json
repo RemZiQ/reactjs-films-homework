@@ -9,8 +9,8 @@
     "start": "set NODE_ENV=development && node server.js",
     "prod": "set NODE_ENV=production && node server.js ",
     "stylelint": "npx stylelint src/**/**.css",
-    "lint": "npx eslint src/**/**.jsx",
-    "fix": "npx eslint --fix src/**/**.jsx"
+    "lint": "npx eslint src/**/**.js",
+    "fix": "npx eslint --fix src/**/**.js"
   },
   "jest": {
     "moduleNameMapper": {
