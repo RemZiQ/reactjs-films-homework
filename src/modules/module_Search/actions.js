@@ -6,9 +6,7 @@ export const fetchTrailer = url => ({ type: 'FETCH_TRAILER', payload: url });
 const urlAPI = 'https://api.themoviedb.org/3';
 const keyAPI = 'api_key=549663e4fb316b398fa37766692d00b7';
 
-export const getFilms = () => (dispatch) => {
-  const search = document.getElementById('searchInputID').value;
-  document.getElementById('searchInputID').value = '';
+export const getFilms = search => (dispatch) => {
   fetch(`${urlAPI}/search/movie?${keyAPI}&language=en-US&query=${search}&page=1&include_adult=false`)
     .then(response => response.json()).then(data => dispatch(fetchData(data)));
 };
@@ -18,8 +16,8 @@ export const getGenres = () => (dispatch) => {
     .then(response => response.json()).then(data => dispatch(fetchGenres(data)));
 };
 
-export const getTrailer = (e) => {
-  const { id } = e.target;
+export const getTrailer = (ID) => {
+  const id = ID;
   return (dispatch) => {
     fetch(`${urlAPI}/movie/${id}/videos?${keyAPI}`)
       .then(response => response.json()).then((data) => {

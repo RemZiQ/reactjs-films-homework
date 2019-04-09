@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
@@ -6,26 +6,35 @@ import { getFilms, getGenres } from '../../modules/module_Search/actions';
 
 import './movieDetailsPageNav.scss';
 
+class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.input = React.createRef();
+  }
 
-const Nav = ({ fetchData, fetchGengres, genres }) => {
-  const fetchFilmsAndGenres = (e) => {
+  fetchFilmsAndGenres = (e) => {
+    const search = this.input.current.value;
+    this.input.current.value = '';
+    const { fetchData, fetchGengres, genres } = this.props;
     e.preventDefault();
     if (!genres.length) {
       fetchGengres();
     }
-    fetchData();
+    fetchData(search);
   };
-  return (
-    <nav className="pageHeader__nav">
-      <div className="logo">films</div>
-      <form method="get" className="nav__form_search">
-        <input type="search" className="nav__search" id="searchInputID" />
-        <button onClick={fetchFilmsAndGenres} type="submit" className="nav__search_button" />
-      </form>
-    </nav>
-  );
-};
 
+  render() {
+    return (
+      <nav className="pageHeader__nav">
+        <div className="logo">films</div>
+        <form method="get" className="nav__form_search">
+          <input ref={this.input} type="search" className="nav__search" id="searchInputID" />
+          <button onClick={this.fetchFilmsAndGenres} type="submit" className="nav__search_button" />
+        </form>
+      </nav>
+    );
+  }
+}
 
 Nav.propTypes = {
   fetchData: propTypes.func.isRequired,
@@ -35,8 +44,8 @@ Nav.propTypes = {
 
 const mapStateToProps = store => ({ genres: store.genres });
 const mapDispatchToProps = dispatch => ({
-  fetchData: () => {
-    dispatch(getFilms());
+  fetchData: (search) => {
+    dispatch(getFilms(search));
   },
   fetchGengres: () => {
     dispatch(getGenres());

@@ -9,8 +9,8 @@
     "start": "set NODE_ENV=development && node server.js",
     "prod": "set NODE_ENV=production && node server.js ",
     "stylelint": "npx stylelint src/**/**.css",
-    "lint": "npx eslint src/**/**.js",
-    "fix": "npx eslint --fix src/**/**.js"
+    "lint": "npx eslint --ext .jsx --ext .js src",
+    "fix": "npx eslint --fix --ext .jsx --ext .js src"
   },
   "jest": {
     "moduleNameMapper": {
@@ -59,6 +59,7 @@
     "css-loader": "^2.1.1",
     "eslint": "^5.15.3",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-class-property": "^1.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",

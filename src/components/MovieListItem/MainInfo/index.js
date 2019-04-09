@@ -1,1 +1,1 @@
-export {default} from './MovieListItemMainInfo';
+export { default } from './MovieListItemMainInfo';

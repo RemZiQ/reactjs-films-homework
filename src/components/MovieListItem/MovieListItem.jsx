@@ -51,10 +51,15 @@ class MovieListItem extends Component {
     }));
   }
 
+  handleForFetchTrailer = (e) => {
+    const { fetchTrailer } = this.props
+    const ID = e.target.id;
+    fetchTrailer(ID)
+  }
+
   render() {
-    const { visibleButtons, visibleOverview, showTrailer } = this.state;
+    const { visibleButtons, visibleOverview, showTrailer, } = this.state;
     const {
-      fetchTrailer,
       id,
       title,
       mark,
@@ -68,11 +73,11 @@ class MovieListItem extends Component {
     if (visibleButtons && !visibleOverview && !showTrailer) {
       return (
         <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
-          <div ref={(div) => { this.itemBG = div; }} style={style} className="movieList__item_bg" id={`bg${id}`}>
+          <div style={style} className="movieList__item_bg" id={`bg${id}`}>
             <ButtonsHover
               state={this.state}
               handleShowTrailer={this.handleShowTrailer}
-              fetchTrailer={fetchTrailer}
+              fetchTrailer={this.handleForFetchTrailer}
               handleOpenOverview={this.handleClickForOverview}
               id={id}
             />
@@ -83,7 +88,7 @@ class MovieListItem extends Component {
     } if (visibleOverview) {
       return (
         <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
-          <div ref={(div) => { this.itemBG2 = div; }} style={style} 
+          <div style={style} 
           className={visibleOverview ? "movieList__item_bgOverwiew" : "movieList__item_bg"} id={`bg${id}`}>
             <Overview
               handleClose={this.handleCloseOverview}
@@ -93,7 +98,7 @@ class MovieListItem extends Component {
               id={id}
               overview={overview}
               handle={this.handleClickForOverview}
-              handleForFetchTrailer={fetchTrailer}
+              handleForFetchTrailer={this.handleForFetchTrailer}
               handleForOpenModal={this.handleShowTrailer}
             />
           </div>
@@ -136,9 +141,8 @@ MovieListItem.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchTrailer: (e) => {
-    e.preventDefault();
-    dispatch(getTrailer(e));
+  fetchTrailer: (id) => {
+    dispatch(getTrailer(id));
   },
 });
 
