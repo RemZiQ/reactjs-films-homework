@@ -71,11 +71,10 @@ class MovieListItem extends Component {
     const style = {
       backgroundImage: `url(https://image.tmdb.org/t/p/original${imageUrl})`,
     };
-    if (visibleButtons && !visibleOverview && !showTrailer) {
+    if (visibleButtons && !visibleOverview) {
       return (
         <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
           <div style={style} className="movieList__item_bg" id={`bg${id}`}>
-          {console.log('firstTime', this.state.showTrailer)}
             <ButtonsHover
               state={this.state}
               handleShowTrailer={this.handleShowTrailer}
@@ -106,25 +105,16 @@ class MovieListItem extends Component {
           </div>
         </div>
       );
-    // } if (showTrailer) {
-    //   return (
-    //     <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
-    //       <div style={style} className="movieList__item_bg" id={`bg${id}`}>
-    //         <Trailer handle={this.handleShowTrailer} id={id} />
-    //       </div>
-    //       <MainInfo title={title} mark={mark} genres={genres} />
-    //     </div>
-    //   );
-    // }
-      }  if (showTrailer) {
+    }  if (showTrailer) {
         return (
           <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
             <div style={style} className="movieList__item_bg" id={`bg${id}`}>
               <Trailer >
-              {console.log('secondTieme__', this.state.showTrailer)}
                 <div className="Trailer">
-                  <button  onClick={this.handleShowTrailer} id={id} >CLOSE TRAILER</button>
-                  <video src={trailer}></video>
+                  <button  onClick={this.handleShowTrailer} id={id} className="movieList__item__trailer_closeButton">
+                    <i className="fas fa-times" />
+                  </button>
+                  <iframe src={trailer} width="640" height="480" frameBorder="0" allowFullScreen></iframe>
                 </div>
               </Trailer>
             </div>

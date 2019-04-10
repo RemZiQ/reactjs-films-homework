@@ -1,22 +1,24 @@
-.movieList__item__trailer{
+.modalRoot{
   position: relative;
-  box-sizing: border-box;
-  width: 750px;
-  height: 600px;
-  padding: 25px 25px 25px 35px;
-  background-color: rgba(0, 0, 0, 0.774);
-  z-index: 100;
+  z-index: 999;
 }
-
-.movieList__item__trailer_closeButton{
-  display: block;
-  margin-left: 95%;
-  margin-bottom: 15px;
+.Trailer{
+  position:fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
 }
-
 .movieList__item__trailer_closeButton{
   width: 30px;
   height: 30px;
+  margin-left: 33%;
+  margin-bottom: 15px;
   text-align: center;
   line-height: 30px;
   background-color: rgba(0, 0, 0, 0);
