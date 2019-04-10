@@ -140,12 +140,14 @@ MovieListItem.propTypes = {
   genres: propTypes.arrayOf(propTypes.number).isRequired,
   overview: propTypes.string,
   imageUrl: propTypes.string.isRequired,
+  trailer: propTypes.string,
 };
 
 MovieListItem.defaultProps = {
   title: 'Sorry here is no title',
   mark: 1,
   overview: 'Sorry here is no info',
+  trailer: 'https://www.youtube.com/embed/-iRajLSA8TA',
 };
 
 
