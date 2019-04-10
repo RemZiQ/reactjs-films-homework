@@ -8,8 +8,13 @@ const ButtonHover = ({
 }) => {
   const handle = (e) => {
     handleShowTrailer();
-    fetchTrailer(e);
+    try {
+      fetchTrailer(e);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div className="movieList__item_buttons_container" id={`${id}`}>
       <div className="movieList__item__button_watch_container">

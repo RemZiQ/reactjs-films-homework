@@ -6,7 +6,9 @@ import MainInfo from './MainInfo';
 import ButtonsHover from './ButtonsHover';
 import Overview from './Overwiew';
 import Trailer from './Trailer';
-import { getTrailer } from '../../modules/module_Search/actions';
+import TrailerError from './TrailerError'
+import Iframe from './Trailer/Iframe'
+import { getTrailer, noError } from '../../modules/module_Search/actions';
 import './movieListItem.scss';
 
 
@@ -106,15 +108,22 @@ class MovieListItem extends Component {
         </div>
       );
     }  if (showTrailer) {
+      const { error, setToNoError } = this.props;
+      const handlerCloseTrailer = () => {
+        this.handleShowTrailer();
+        setToNoError();
+      }
         return (
           <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
             <div style={style} className="movieList__item_bg" id={`bg${id}`}>
               <Trailer >
                 <div className="Trailer">
-                  <button  onClick={this.handleShowTrailer} id={id} className="movieList__item__trailer_closeButton">
+                  <button  onClick={handlerCloseTrailer} id={id} className="movieList__item__trailer_closeButton">
                     <i className="fas fa-times" />
                   </button>
-                  <iframe src={trailer} width="640" height="480" frameBorder="0" allowFullScreen></iframe>
+                  <TrailerError>
+                    <Iframe trailer={trailer} error={error}/> 
+                  </TrailerError>
                 </div>
               </Trailer>
             </div>
@@ -141,6 +150,7 @@ MovieListItem.propTypes = {
   overview: propTypes.string,
   imageUrl: propTypes.string.isRequired,
   trailer: propTypes.string,
+  error: propTypes.bool,
 };
 
 MovieListItem.defaultProps = {
@@ -151,12 +161,13 @@ MovieListItem.defaultProps = {
 };
 
 
-const mapStateToProps = state => ({ trailer: state.currentTrailer });
+const mapStateToProps = state => ({ trailer: state.currentTrailer, error: state.error });
 
 const mapDispatchToProps = dispatch => ({
   fetchTrailer: (id) => {
     dispatch(getTrailer(id));
   },
+  setToNoError: () => dispatch(noError())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieListItem);

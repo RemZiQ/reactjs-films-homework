@@ -18,8 +18,9 @@
     },
     "plugins": [
         "react",
-        "class-property"
+        "babel"
     ],
     "rules": {
+        "babel/semi": 1
     }
 }

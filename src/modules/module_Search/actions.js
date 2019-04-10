@@ -1,7 +1,12 @@
 export const fetchData = data => ({ type: 'FETCH__DATA', payload: data });
 
 export const fetchGenres = genres => ({ type: 'FETCH_GENRES', payload: genres });
+
 export const fetchTrailer = url => ({ type: 'FETCH_TRAILER', payload: url });
+
+export const errorTrailer = () => ({ type: 'ERROR_TRAILER' });
+
+export const noError = () => ({ type: 'NO_ERROR_TRAILER' });
 
 const urlAPI = 'https://api.themoviedb.org/3';
 const keyAPI = 'api_key=549663e4fb316b398fa37766692d00b7';
@@ -36,11 +41,13 @@ export const getTrailer = (ID) => {
           throw new Error('Network response was not ok.');
         }
         return response.json();
-      }).then((data) => {
+      }).catch(error => console.log('something went wrong.', error))
+      .then((data) => {
         if (data.results.length) {
+          dispatch(noError());
           return dispatch(fetchTrailer(`https://www.youtube.com/embed/${data.results[0].key}`));
         }
-        throw new Error('Here is no trailer');
-      }).catch(error => console.log('something went wrong.', error));
+        return dispatch(errorTrailer());
+      });
   };
 };
