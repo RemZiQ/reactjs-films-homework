@@ -3,6 +3,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
 import './components/MovieDetailsPage/reset.css';
@@ -11,7 +12,13 @@ import store from './modules/store';
 
 
 const component = () => {
-  render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+  render((
+    <BrowserRouter>
+      <Provider store={store}>
+        <Route path="/" component={App} />
+      </Provider>
+    </BrowserRouter>),
+  document.getElementById('root'));
 };
 
 component();
