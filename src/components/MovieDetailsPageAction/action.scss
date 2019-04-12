@@ -1,0 +1,37 @@
+.action_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.action__watch {
+  width: 199px;
+  height: 60px;
+  margin-right: 45px;
+  border-radius: 6px;
+  background-color: #0aaee4;
+  color: white;
+  border: none;
+}
+
+.action__view {
+  width: 199px;
+  height: 60px;
+  margin-right: 120px;
+  border-radius: 6px;
+  background-color: #000;
+  color: white;
+}
+
+.action_info {
+  width: 460px;
+  padding-left: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 28px;
+  letter-spacing: 1px;
+  line-height: 44px;
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+  text-align: left;
+}
