@@ -3,7 +3,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
 
 
 import './components/MovieDetailsPage/reset.css';
@@ -23,4 +23,4 @@ const component = () => {
 
 component();
 store.subscribe(component);
-export default component;
+export default withRouter(component);

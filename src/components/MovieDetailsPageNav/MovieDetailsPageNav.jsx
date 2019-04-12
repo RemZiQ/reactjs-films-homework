@@ -10,7 +10,6 @@ import './movieDetailsPageNav.scss';
 class Nav extends Component {
   constructor(props) {
     super(props);
-    this.input = React.createRef();
     this.state = {
       searchValue: '',
     };
@@ -18,17 +17,19 @@ class Nav extends Component {
 
   fetchFilmsAndGenres = (e) => {
     const search = this.state.searchValue;
+    this.setState({ searchValue: '' });
     const { fetchData, fetchGengres, genres } = this.props;
-    e.preventDefault();
+    // dont use preventDefault when use REACT ROUTE <LINK> !!!!!
+    // e.preventDefault();
     if (!genres.length) {
       fetchGengres();
     }
     fetchData(search);
   };
 
-  submitForm = () => {
-    this.setState
-  }
+  // submitForm = () => {
+  //   this.setState
+  // }
 
   handleChangeInput = (e) => {
     this.setState({
@@ -48,6 +49,7 @@ class Nav extends Component {
             onChange={this.handleChangeInput}
             />
           <Link to={{pathname:'/', search:`?query=${this.state.searchValue}`}}>
+          {console.log("____", this.state.searchValue)}
           <button onClick={this.fetchFilmsAndGenres} type="submit" className="nav__search_button" />
           </Link>
         </form>

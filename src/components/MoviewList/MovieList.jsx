@@ -6,28 +6,43 @@ import './movieList.scss';
 import MovieListItem from '../MovieListItem';
 
 
-const MoviewList = ({ store }) => {
-  let listOfMovieItems = '';
-  if (store.data.results) {
-    listOfMovieItems = store.data.results.map(item => (
-      <MovieListItem
-        key={item.id}
-        imageUrl={item.poster_path}
-        title={item.title}
-        genres={item.genre_ids}
-        mark={+(item.vote_average / 2)}
-        id={item.id}
-        overview={item.overview}
-      />
-    ));
+class MoviewList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.listOfMovieItems = '';
   }
 
-  return (
-    <div className="moviewList__container">
-      {listOfMovieItems}
-    </div>
-  );
-};
+  componentDidMount() {
+    const { location } = this.props;
+    if (location) {
+      console.log(location.search);
+    }
+  }
+
+  render() {
+    let listOfMovieItems = '';
+    const { store } = this.props;
+    if (store.data.results) {
+      listOfMovieItems = store.data.results.map(item => (
+        <MovieListItem
+          key={item.id}
+          imageUrl={item.poster_path}
+          title={item.title}
+          genres={item.genre_ids}
+          mark={+(item.vote_average / 2)}
+          id={item.id}
+          overview={item.overview}
+        />
+      ));
+    }
+
+    return (
+      <div className="moviewList__container">
+        {listOfMovieItems}
+      </div>
+    );
+  }
+}
 
 
 MoviewList.propTypes = {
