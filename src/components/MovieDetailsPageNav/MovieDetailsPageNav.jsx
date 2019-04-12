@@ -9,12 +9,16 @@ import './movieDetailsPageNav.scss';
 class Nav extends Component {
   constructor(props) {
     super(props);
-    this.input = React.createRef();
+    this.state = { input: '' };
+  }
+
+  handleChangeInput = (e) => {
+    this.setState({ searchValue: e.target.value })
   }
 
   fetchFilmsAndGenres = (e) => {
-    const search = this.input.current.value;
-    this.input.current.value = '';
+    const search = this.state.searchValue;
+    this.setState({ searchValue: '' });
     const { fetchData, fetchGengres, genres } = this.props;
     e.preventDefault();
     if (!genres.length) {
@@ -28,7 +32,12 @@ class Nav extends Component {
       <nav className="pageHeader__nav">
         <div className="logo">films</div>
         <form method="get" className="nav__form_search">
-          <input ref={this.input} type="search" className="nav__search" id="searchInputID" />
+          <input
+          onChange={this.handleChangeInput}
+          value={this.state.searchValue}
+          type="search"
+          className="nav__search"
+          id="searchInputID" />
           <button onClick={this.fetchFilmsAndGenres} type="submit" className="nav__search_button" />
         </form>
       </nav>

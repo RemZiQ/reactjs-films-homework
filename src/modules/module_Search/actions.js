@@ -41,13 +41,12 @@ export const getTrailer = (ID) => {
           throw new Error('Network response was not ok.');
         }
         return response.json();
-      }).catch(error => console.log('something went wrong.', error))
-      .then((data) => {
+      }).then((data) => {
         if (data.results.length) {
           dispatch(noError());
           return dispatch(fetchTrailer(`https://www.youtube.com/embed/${data.results[0].key}`));
         }
         return dispatch(errorTrailer());
-      });
+      }).catch(error => console.log('something went wrong.', error));
   };
 };
