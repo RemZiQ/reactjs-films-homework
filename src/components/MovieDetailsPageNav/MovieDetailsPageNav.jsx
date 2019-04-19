@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import { getFilms, getGenres } from '../../modules/module_Search/actions';
 
@@ -16,6 +16,7 @@ class Nav extends Component {
   }
 
   fetchFilmsAndGenres = (e) => {
+    // const { query } = this.props;
     const search = this.state.searchValue;
     this.setState({ searchValue: '' });
     const { fetchData, fetchGengres, genres } = this.props;
@@ -27,10 +28,6 @@ class Nav extends Component {
     fetchData(search);
   };
 
-  // submitForm = () => {
-  //   this.setState
-  // }
-
   handleChangeInput = (e) => {
     this.setState({
       searchValue: e.target.value,
@@ -40,7 +37,7 @@ class Nav extends Component {
     return (
       <nav className="pageHeader__nav">
         <div className="logo">films</div>
-        <form onSubmit={console.log('*****')} method="get" className="nav__form_search">
+        <form method="get" className="nav__form_search">
           <input 
             type="search" 
             className="nav__search" 
@@ -48,9 +45,8 @@ class Nav extends Component {
             value={this.state.searchValue}
             onChange={this.handleChangeInput}
             />
-          <Link to={{pathname:'/', search:`?query=${this.state.searchValue}`}}>
-          {console.log("____", this.state.searchValue)}
-          <button onClick={this.fetchFilmsAndGenres} type="submit" className="nav__search_button" />
+          <Link to={{pathname:'/search', search:`?query=${this.state.searchValue}`}}>
+            <button onClick={this.fetchFilmsAndGenres} type="submit" className="nav__search_button" />
           </Link>
         </form>
       </nav>
@@ -74,6 +70,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps, mapDispatchToProps,
-)(Nav);
+)(Nav));

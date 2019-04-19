@@ -15,7 +15,7 @@ const component = () => {
   render((
     <BrowserRouter>
       <Provider store={store}>
-        <Route path="/" component={App} />
+        <Route component={App} />
       </Provider>
     </BrowserRouter>),
   document.getElementById('root'));
@@ -23,4 +23,4 @@ const component = () => {
 
 component();
 store.subscribe(component);
-export default withRouter(component);
+export default component;

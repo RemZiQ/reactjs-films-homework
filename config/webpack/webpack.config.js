@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    app: ['./src/index.js', 'webpack-hot-middleware/client']
+    app: ['./src/index.js', 'webpack-hot-middleware/client'],
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -14,15 +14,15 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
-    })
+      template: './src/index.html',
+      filename: './index.html',
+    }),
   ],
-  resolve: {extensions: ['.js','.jsx']},
+  resolve: { extensions: ['.js', '.jsx'] },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, '../../dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -30,36 +30,36 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader' 
-        ]
+          'css-loader',
+        ],
       },
       {
         test: /\.scss$/,
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'file-loader'
-        ]
+          'file-loader',
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
-          'file-loader'
-        ]
+          'file-loader',
+        ],
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
-      }
-    ]
+          loader: 'babel-loader',
+        },
+      },
+    ],
   },
 };

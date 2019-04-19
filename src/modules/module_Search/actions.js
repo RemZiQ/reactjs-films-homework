@@ -21,6 +21,16 @@ export const getFilms = search => (dispatch) => {
     }).then(data => dispatch(fetchData(data))).catch(error => console.log('something went wrong.', error));
 };
 
+export const getInitFilms = () => (dispatch) => {
+  fetch(`${urlAPI}/movie/top_rated?${keyAPI}&language=en-US&page=1`)
+    .then((response) => {
+      if (response.statusText !== 'OK') {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    }).then(data => dispatch(fetchData(data))).catch(error => console.log('something went wrong.', error));
+};
+
 export const getGenres = () => (dispatch) => {
   fetch(`${urlAPI}/genre/movie/list?${keyAPI}&language=en-US`)
     .then((response) => {

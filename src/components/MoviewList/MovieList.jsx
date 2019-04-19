@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
-import './movieList.scss';
+import { getInitFilms, getGenres, getFilms } from '../../modules/module_Search/actions';
 import MovieListItem from '../MovieListItem';
+import './movieList.scss';
 
 
 class MoviewList extends React.Component {
@@ -13,10 +15,29 @@ class MoviewList extends React.Component {
   }
 
   componentDidMount() {
-    const { location } = this.props;
-    if (location) {
-      console.log(location.search);
+    const {
+      location,
+      match,
+      fetchGengres,
+      fetchInitData,
+      fetchData,
+      store
+    } = this.props;
+
+    if (location.pathname === '/') {
+      if (!store.genres.length) {
+        fetchGengres();
+      }
+      fetchInitData();
+    } else if (location.pathname === '/search') {
+      const params = new URLSearchParams(location.search);
+      const query = params.get('query');
+      fetchData(query);
     }
+  }
+
+  componentDidUpdate() {
+    const { match, location } = this.props;
   }
 
   render() {
@@ -52,5 +73,16 @@ MoviewList.propTypes = {
 };
 
 const mapStateToProps = state => ({ store: state });
+const mapDispatchToProps = dispatch => ({
+  fetchInitData: () => {
+    dispatch(getInitFilms());
+  },
+  fetchData: (search) => {
+    dispatch(getFilms(search));
+  },
+  fetchGengres: () => {
+    dispatch(getGenres());
+  },
+});
 
-export default connect(mapStateToProps)(MoviewList);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MoviewList));
