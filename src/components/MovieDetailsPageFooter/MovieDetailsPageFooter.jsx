@@ -1,22 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import StarRating from '../MovieDetailsPageStarRating';
 import Action from '../MovieDetailsPageAction';
 import './movieDetailsPageFooter.scss';
 
-const movieDetailsPageFooter = () => {
-  const exampleInfo = `There are growing dangers in the
-   wizarding world of 1926 New York. Something mysterious is 
-   leaving a path of dectruction in the streets,
-   threatening to expose the wizarding`;
-  const exampleGenres = ['Adventure', 'Drama', 'Family', 'Fantasy'];
+const movieDetailsPageFooter = ({ store }) => {
+  if (store) {
+    console.log(store.runtime);
+  }
   const exampleDuration = '1h 46m';
-  const exampleRating = 4.8;
-  return (
-    <div className="movieDetailsPage__footer">
-      <StarRating title="the jungle book" genres={exampleGenres} duration={exampleDuration} rating={exampleRating} />
-      <Action info={exampleInfo} />
-    </div>
-  );
+  if (store) {
+    const genres = store.genres.map(elem => elem.name);
+    const rating = store.vote_average / 2;
+    const hour = (store.runtime - (store.runtime % 60)) / 60;
+    const duration = `${hour}h ${store.runtime - 60 * hour}m`;
+    return (
+      <div className="movieDetailsPage__footer">
+        <StarRating title={store.title} genres={genres} duration={duration} rating={rating} />
+        <Action info={store.overview} />
+      </div>
+    );
+  }
+  return (<div>Loading</div>);
 };
-export default movieDetailsPageFooter;
+
+const mapStateToProps = store => ({ store: store.currentMovie });
+
+
+export default connect(mapStateToProps, null)(movieDetailsPageFooter);

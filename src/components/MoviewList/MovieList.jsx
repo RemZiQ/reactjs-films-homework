@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-import { getInitFilms, getGenres, getFilms } from '../../modules/module_Search/actions';
+import { getInitFilms, getGenres, getFilms, getInitMovie } from '../../modules/module_Search/actions';
 import MovieListItem from '../MovieListItem';
 import './movieList.scss';
 
@@ -20,6 +20,7 @@ class MoviewList extends React.Component {
       match,
       fetchGengres,
       fetchInitData,
+      fetchInitMovie,
       fetchData,
       store
     } = this.props;
@@ -29,16 +30,22 @@ class MoviewList extends React.Component {
         fetchGengres();
       }
       fetchInitData();
-    } else if (location.pathname === '/search') {
-      const params = new URLSearchParams(location.search);
-      const query = params.get('query');
-      fetchData(query);
+      fetchInitMovie();
     }
   }
+  // needed for link`s share and get same result on the page
 
-  componentDidUpdate() {
-    const { match, location } = this.props;
-  }
+
+  //   } else if (location.pathname === '/search') {
+  //     const params = new URLSearchParams(location.search);
+  //     const query = params.get('query');
+  //     fetchData(query);
+  //   }
+  // }
+
+  // componentDidUpdate() {
+  //   const { match, location } = this.props;
+  // }
 
   render() {
     let listOfMovieItems = '';
@@ -76,6 +83,9 @@ const mapStateToProps = state => ({ store: state });
 const mapDispatchToProps = dispatch => ({
   fetchInitData: () => {
     dispatch(getInitFilms());
+  },
+  fetchInitMovie: () => {
+    dispatch(getInitMovie());
   },
   fetchData: (search) => {
     dispatch(getFilms(search));

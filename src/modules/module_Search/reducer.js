@@ -18,6 +18,8 @@ function reducer(state = initialState, action) {
       return { ...state, ...{ error: true } };
     case 'NO_ERROR_TRAILER':
       return { ...state, ...{ error: false } };
+    case 'FETCH__MOVIE':
+      return { ...state, ...{ currentMovie: action.payload } };
     default: return state;
   }
 }

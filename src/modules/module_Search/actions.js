@@ -4,12 +4,15 @@ export const fetchGenres = genres => ({ type: 'FETCH_GENRES', payload: genres })
 
 export const fetchTrailer = url => ({ type: 'FETCH_TRAILER', payload: url });
 
+export const fetchMovie = data => ({ type: 'FETCH__MOVIE', payload: data });
+
 export const errorTrailer = () => ({ type: 'ERROR_TRAILER' });
 
 export const noError = () => ({ type: 'NO_ERROR_TRAILER' });
 
 const urlAPI = 'https://api.themoviedb.org/3';
 const keyAPI = 'api_key=549663e4fb316b398fa37766692d00b7';
+const lang = 'language=en-US'
 
 export const getFilms = search => (dispatch) => {
   fetch(`${urlAPI}/search/movie?${keyAPI}&language=en-US&query=${search}&page=1&include_adult=false`)
@@ -60,4 +63,28 @@ export const getTrailer = (ID) => {
         return dispatch(errorTrailer());
       });
   };
+};
+
+export const getCurrentMovie = (ID) => {
+  const id = ID;
+  console.log('______________ID', id);
+  return (dispatch) => {
+    fetch(`${urlAPI}/movie/${id}?${keyAPI}&${lang}`)
+      .then((response) => {
+        if (response.statusText !== 'OK') {
+          throw new Error('Network response was not ok.');
+        }
+        return response.json();
+      }).then(data => dispatch(fetchMovie(data))).catch(error => console.log('something went wrong.', error));
+  };
+};
+
+export const getInitMovie = () => (dispatch) => {
+  fetch(`${urlAPI}/movie/259316?${keyAPI}&${lang}`)
+    .then((response) => {
+      if (response.statusText !== 'OK') {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    }).then(data => dispatch(fetchMovie(data))).catch(error => console.log('something went wrong.', error));
 };
