@@ -3,8 +3,16 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-import { getInitFilms, getGenres, getFilms, getInitMovie } from '../../modules/module_Search/actions';
+import {
+  getInitFilms,
+  getGenres,
+  getFilms,
+  getInitMovie,
+  getCurrentMovie,
+} from '../../modules/module_Search/actions';
+
 import MovieListItem from '../MovieListItem';
+import MovieListHeader from './MovieListHeader';
 import './movieList.scss';
 
 
@@ -22,6 +30,7 @@ class MoviewList extends React.Component {
       fetchInitData,
       fetchInitMovie,
       fetchData,
+      fetchCurrentMovie,
       store
     } = this.props;
 
@@ -31,17 +40,19 @@ class MoviewList extends React.Component {
       }
       fetchInitData();
       fetchInitMovie();
-    }
-  }
+    // }
+  // }
   // needed for link`s share and get same result on the page
 
 
-  //   } else if (location.pathname === '/search') {
-  //     const params = new URLSearchParams(location.search);
-  //     const query = params.get('query');
-  //     fetchData(query);
-  //   }
-  // }
+    } else if (location.pathname === '/search') {
+      const params = new URLSearchParams(location.search);
+      const query = params.get('query');
+      const id = params.get('id');
+      query === 'init793797112020979' ? fetchInitData() : fetchData(query);
+      id === null ? fetchInitMovie() : fetchCurrentMovie(id);
+    }
+  }
 
   // componentDidUpdate() {
   //   const { match, location } = this.props;
@@ -65,8 +76,11 @@ class MoviewList extends React.Component {
     }
 
     return (
-      <div className="moviewList__container">
-        {listOfMovieItems}
+      <div>
+        <MovieListHeader />
+        <div className="moviewList__container">
+          {listOfMovieItems}
+        </div>
       </div>
     );
   }
@@ -86,6 +100,9 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchInitMovie: () => {
     dispatch(getInitMovie());
+  },
+  fetchCurrentMovie: (id) => {
+    dispatch(getCurrentMovie(id))
   },
   fetchData: (search) => {
     dispatch(getFilms(search));

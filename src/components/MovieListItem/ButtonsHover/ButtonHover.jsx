@@ -30,6 +30,7 @@ const ButtonHover = ({
 
   const param = new URLSearchParams(location.search);
   const query = param.get('query');
+  const currentQuery = query === null ? 'init793797112020979' : query;
 
   return (
     <div className="movieList__item_buttons_container" id={`${id}`}>
@@ -42,7 +43,7 @@ const ButtonHover = ({
         />
         <p>Watch now</p>
       </div>
-      <Link to={{ pathname: '/search', search: `?query=${query}&id=${id}` }}>
+      <Link to={{ pathname: '/search', search: `?query=${currentQuery}&id=${id}` }}>
         <button
           onClick={handleOpenOverviewAndFetchCurrentMovie}
           type="button"

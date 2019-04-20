@@ -5,9 +5,9 @@
 }
 
 h1 {
-  margin-top: 130px;
+  margin-top: 250px;
   margin-bottom: 30px;
-  font-size: 60px;
+  font-size: 40px;
   letter-spacing: 2px;
   line-height: 44px;
   color: #fff;
@@ -25,12 +25,13 @@ h1 {
 
 .starRating__genres ul {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   width: 100%;
 }
 
 .starRating__genres li {
   display: inline-flex;
+  margin-right: 15px;
 }
 .starRating__genres li button{
   background-color: rgba(0, 0, 0, 0);
@@ -69,10 +70,10 @@ h1 {
 .starRating__stars ul {
   display: flex;
   width: 90%;
-  justify-content: space-between;
 }
 
 .starRating__stars i {
+  letter-spacing: 15px;
   font-size: 36px;
   color: #09ade3;
 }
