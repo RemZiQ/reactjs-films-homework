@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
@@ -9,6 +9,9 @@ import {
   getFilms,
   getInitMovie,
   getCurrentMovie,
+  getTrandingFilms,
+  getTopRated,
+  getComingSoonFilms,
 } from '../../modules/module_Search/actions';
 
 import MovieListItem from '../MovieListItem';
@@ -16,7 +19,7 @@ import MovieListHeader from './MovieListHeader';
 import './movieList.scss';
 
 
-class MoviewList extends React.Component {
+class MoviewList extends PureComponent {
   constructor(props) {
     super(props);
     this.listOfMovieItems = '';
@@ -31,7 +34,10 @@ class MoviewList extends React.Component {
       fetchInitMovie,
       fetchData,
       fetchCurrentMovie,
-      store
+      fetchTrandingData,
+      fetchTopRatedData,
+      fetchComingSoonData,
+      store,
     } = this.props;
 
     if (location.pathname === '/') {
@@ -40,23 +46,35 @@ class MoviewList extends React.Component {
       }
       fetchInitData();
       fetchInitMovie();
-    // }
-  // }
-  // needed for link`s share and get same result on the page
-
-
-    } else if (location.pathname === '/search') {
-      const params = new URLSearchParams(location.search);
-      const query = params.get('query');
-      const id = params.get('id');
-      query === 'init793797112020979' ? fetchInitData() : fetchData(query);
-      id === null ? fetchInitMovie() : fetchCurrentMovie(id);
     }
-  }
+    // }
+    // // needed for link`s share and get same result on the page
 
-  // componentDidUpdate() {
-  //   const { match, location } = this.props;
-  // }
+
+    //   } else if (location.pathname === '/search') {
+    //     const params = new URLSearchParams(location.search);
+    //     const query = params.get('query');
+    //     const id = params.get('id');
+    //     switch (query) {
+    //       case 'init793797112020979':
+    //         fetchInitData();
+    //         break;
+    //       case 'Trending':
+    //         fetchTrandingData();
+    //         break;
+    //       case 'Top Rated':
+    //         fetchTopRatedData();
+    //         break;
+    //       case 'Coming soon':
+    //         fetchComingSoonData();
+    //         break;
+    //       default:
+    //         fetchData(query);
+    //     }
+    //     // query === 'init793797112020979' ? fetchInitData() : fetchData(query);
+    //     id === null ? fetchInitMovie() : fetchCurrentMovie(id);
+    //   }
+  }
 
   render() {
     let listOfMovieItems = '';
@@ -102,13 +120,22 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getInitMovie());
   },
   fetchCurrentMovie: (id) => {
-    dispatch(getCurrentMovie(id))
+    dispatch(getCurrentMovie(id));
   },
   fetchData: (search) => {
     dispatch(getFilms(search));
   },
   fetchGengres: () => {
     dispatch(getGenres());
+  },
+  fetchTrandingData: (id) => {
+    dispatch(getTrandingFilms(id));
+  },
+  fetchTopRatedData: () => {
+    dispatch(getTopRated());
+  },
+  fetchComingSoonData: () => {
+    dispatch(getComingSoonFilms());
   },
 });
 

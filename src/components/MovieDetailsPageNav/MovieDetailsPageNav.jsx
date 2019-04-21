@@ -32,20 +32,21 @@ class Nav extends Component {
     this.setState({
       searchValue: e.target.value,
     });
-  }
+  };
+
   render() {
     return (
       <nav className="pageHeader__nav">
         <div className="logo">films</div>
         <form method="get" className="nav__form_search">
-          <input 
-            type="search" 
-            className="nav__search" 
-            id="searchInputID" 
+          <input
+            type="search"
+            className="nav__search"
+            id="searchInputID"
             value={this.state.searchValue}
             onChange={this.handleChangeInput}
-            />
-          <Link to={{pathname:'/search', search:`?query=${this.state.searchValue}`}}>
+          />
+          <Link to={{ pathname: '/search', search: `?query=${this.state.searchValue}` }}>
             <button onClick={this.fetchFilmsAndGenres} type="submit" className="nav__search_button" />
           </Link>
         </form>

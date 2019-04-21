@@ -6,8 +6,8 @@ import MainInfo from './MainInfo';
 import ButtonsHover from './ButtonsHover';
 import Overview from './Overwiew';
 import Trailer from './Trailer';
-import TrailerError from './TrailerError'
-import Iframe from './Trailer/Iframe'
+import TrailerError from './TrailerError';
+import Iframe from './Trailer/Iframe';
 import { getTrailer, noError } from '../../modules/module_Search/actions';
 import './movieListItem.scss';
 
@@ -25,25 +25,25 @@ class MovieListItem extends Component {
         visibleButtons: true,
       }));
     }
-  }
+  };
 
   handleUnvisibleButtons = () => {
     this.setState(() => ({
       visibleButtons: false,
     }));
-  }
+  };
 
   handleClickForOverview = () => {
     this.setState(() => ({
       visibleOverview: true,
     }));
-  }
+  };
 
   handleCloseOverview = () => {
     this.setState(() => ({
       visibleOverview: false,
     }));
-  }
+  };
 
   handleShowTrailer = () => {
     const { showTrailer } = this.state;
@@ -51,16 +51,16 @@ class MovieListItem extends Component {
       showTrailer: !showTrailer,
       visibleButtons: false,
     }));
-  }
+  };
 
   handleForFetchTrailer = (e) => {
-    const { fetchTrailer } = this.props
+    const { fetchTrailer } = this.props;
     const ID = e.target.id;
-    fetchTrailer(ID)
-  }
+    fetchTrailer(ID);
+  };
 
   render() {
-    const { visibleButtons, visibleOverview, showTrailer, } = this.state;
+    const { visibleButtons, visibleOverview, showTrailer } = this.state;
     const {
       id,
       title,
@@ -91,8 +91,11 @@ class MovieListItem extends Component {
     } if (visibleOverview) {
       return (
         <div onFocus={this.handleVisibleButtons} onMouseLeave={this.handleUnvisibleButtons} className="movieList__item">
-          <div style={style} 
-          className={visibleOverview ? "movieList__item_bgOverwiew" : "movieList__item_bg"} id={`bg${id}`}>
+          <div
+            style={style}
+            className={visibleOverview ? 'movieList__item_bgOverwiew' : 'movieList__item_bg'}
+            id={`bg${id}`}
+          >
             <Overview
               handleClose={this.handleCloseOverview}
               title={title}
@@ -107,30 +110,30 @@ class MovieListItem extends Component {
           </div>
         </div>
       );
-    }  if (showTrailer) {
+    } if (showTrailer) {
       const { error, setToNoError } = this.props;
       const handlerCloseTrailer = () => {
         this.handleShowTrailer();
         setToNoError();
-      }
-        return (
-          <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
-            <div style={style} className="movieList__item_bg" id={`bg${id}`}>
-              <Trailer >
-                <div className="Trailer">
-                  <button  onClick={handlerCloseTrailer} id={id} className="movieList__item__trailer_closeButton">
-                    <i className="fas fa-times" />
-                  </button>
-                  <TrailerError>
-                    <Iframe trailer={trailer} error={error}/> 
-                  </TrailerError>
-                </div>
-              </Trailer>
-            </div>
-            <MainInfo title={title} mark={mark} genres={genres} />
+      };
+      return (
+        <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
+          <div style={style} className="movieList__item_bg" id={`bg${id}`}>
+            <Trailer>
+              <div className="Trailer">
+                <button onClick={handlerCloseTrailer} type="button" id={id} className="movieList__item__trailer_closeButton">
+                  <i className="fas fa-times" />
+                </button>
+                <TrailerError>
+                  <Iframe trailer={trailer} error={error} />
+                </TrailerError>
+              </div>
+            </Trailer>
           </div>
-        );
-      }
+          <MainInfo title={title} mark={mark} genres={genres} />
+        </div>
+      );
+    }
     return (
       <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
         <div style={style} className="movieList__item_bg" id={`bg${id}`} />
@@ -167,7 +170,7 @@ const mapDispatchToProps = dispatch => ({
   fetchTrailer: (id) => {
     dispatch(getTrailer(id));
   },
-  setToNoError: () => dispatch(noError())
+  setToNoError: () => dispatch(noError()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieListItem);

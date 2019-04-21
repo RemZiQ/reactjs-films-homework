@@ -12,7 +12,7 @@ export const noError = () => ({ type: 'NO_ERROR_TRAILER' });
 
 const urlAPI = 'https://api.themoviedb.org/3';
 const keyAPI = 'api_key=549663e4fb316b398fa37766692d00b7';
-const lang = 'language=en-US'
+const lang = 'language=en-US';
 
 export const getFilms = search => (dispatch) => {
   fetch(`${urlAPI}/search/movie?${keyAPI}&language=en-US&query=${search}&page=1&include_adult=false`)
@@ -87,4 +87,34 @@ export const getInitMovie = () => (dispatch) => {
       }
       return response.json();
     }).then(data => dispatch(fetchMovie(data))).catch(error => console.log('something went wrong.', error));
+};
+
+export const getTrandingFilms = () => (dispatch) => {
+  fetch(`${urlAPI}/movie/popular?${keyAPI}&${lang}`)
+    .then((response) => {
+      if (response.statusText !== 'OK') {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    }).then(data => dispatch(fetchData(data))).catch(error => console.log('something went wrong.', error));
+};
+
+export const getTopRated = () => (dispatch) => {
+  fetch(`${urlAPI}/movie/top_rated?${keyAPI}&${lang}`)
+    .then((response) => {
+      if (response.statusText !== 'OK') {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    }).then(data => dispatch(fetchData(data))).catch(error => console.log('something went wrong.', error));
+};
+
+export const getComingSoonFilms = () => (dispatch) => {
+  fetch(`${urlAPI}/movie/upcoming?${keyAPI}&${lang}`)
+    .then((response) => {
+      if (response.statusText !== 'OK') {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    }).then(data => dispatch(fetchData(data))).catch(error => console.log('something went wrong.', error));
 };

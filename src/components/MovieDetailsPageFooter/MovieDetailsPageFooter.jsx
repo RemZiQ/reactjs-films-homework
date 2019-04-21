@@ -7,10 +7,6 @@ import './movieDetailsPageFooter.scss';
 
 const movieDetailsPageFooter = ({ store }) => {
   if (store) {
-    console.log(store.runtime);
-  }
-  const exampleDuration = '1h 46m';
-  if (store) {
     const genres = store.genres.map(elem => elem.name);
     const rating = store.vote_average / 2;
     const hour = (store.runtime - (store.runtime % 60)) / 60;
