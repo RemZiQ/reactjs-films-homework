@@ -8,7 +8,7 @@ import './movieDetailsPageFooter.scss';
 
 const MovieDetailsPageFooter = ({ store }) => {
   if (store) {
-    const genres = store.genres.map(elem => elem.name);
+    const { genres } = store;
     const rating = store.vote_average / 2;
     const hour = (store.runtime - (store.runtime % 60)) / 60;
     const duration = `${hour}h ${store.runtime - 60 * hour}m`;

@@ -62,6 +62,8 @@ ButtonHover.propTypes = {
   handleOpenOverview: propTypes.func.isRequired,
   fetchTrailer: propTypes.func.isRequired,
   handleShowTrailer: propTypes.func.isRequired,
+  location: propTypes.objectOf(propTypes.any).isRequired,
+  fetchMovie: propTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

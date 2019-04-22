@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 
 import { getTrandingFilms, getTopRated, getComingSoonFilms } from '../../../modules/module_Search/actions';
 import './movieLIstHeader.scss';
@@ -48,5 +49,13 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getComingSoonFilms());
   },
 });
+
+
+MovieListHeader.propTypes = {
+  fetchTrandingData: propTypes.func.isRequired,
+  fetchTopRatedData: propTypes.func.isRequired,
+  fetchComingSoonData: propTypes.func.isRequired,
+};
+
 
 export default connect(null, mapDispatchToProps)(MovieListHeader);

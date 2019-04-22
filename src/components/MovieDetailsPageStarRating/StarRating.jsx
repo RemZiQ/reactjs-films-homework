@@ -12,7 +12,7 @@ const StarRating = ({
   };
   const countOfStars = Math.round(rating);
   const listGenres = genres
-    .map((item, index) => <li key={index}><button type="submit" onClick={handling}>{item}</button></li>);
+    .map(item => <li key={item.id}><button type="submit" onClick={handling}>{item.name}</button></li>);
   const stars = new Array(countOfStars).fill(1).map((item, index) => <li key={index}><i className="fas fa-star" /></li>);
   return (
     <div className="starRating_container">

@@ -153,7 +153,8 @@ MovieListItem.propTypes = {
   overview: propTypes.string,
   imageUrl: propTypes.string.isRequired,
   trailer: propTypes.string,
-  error: propTypes.bool,
+  error: propTypes.bool.isRequired,
+  setToNoError: propTypes.func.isRequired,
 };
 
 MovieListItem.defaultProps = {

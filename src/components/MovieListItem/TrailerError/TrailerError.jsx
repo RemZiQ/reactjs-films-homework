@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 
 import './trailerError.scss';
 
@@ -27,19 +28,9 @@ class TrailerError extends Component {
   }
 }
 
+
+TrailerError.propTypes = {
+  children: propTypes.node.isRequired,
+};
+
 export default TrailerError;
-
-
-//  render() {
-//   const { hasError } = this.state;
-//   const { children } = this.props;
-//   if (hasError) {
-//     return (
-//       <div className="trailerError_container">
-//         <h1>Something went wrong.</h1>
-//       </div>
-//     );
-//   }
-
-//   return children;
-// }

@@ -28,7 +28,6 @@ class MoviewList extends PureComponent {
   componentDidMount() {
     const {
       location,
-      match,
       fetchGengres,
       fetchInitData,
       fetchInitMovie,
@@ -46,34 +45,30 @@ class MoviewList extends PureComponent {
       }
       fetchInitData();
       fetchInitMovie();
-    
-    // }
-    // // needed for link`s share and get same result on the page
 
-
-      } else if (location.pathname === '/search') {
-        const params = new URLSearchParams(location.search);
-        const query = params.get('query');
-        const id = params.get('id');
-        switch (query) {
-          case 'init793797112020979':
-            fetchInitData();
-            break;
-          case 'Trending':
-            fetchTrandingData();
-            break;
-          case 'Top Rated':
-            fetchTopRatedData();
-            break;
-          case 'Coming soon':
-            fetchComingSoonData();
-            break;
-          default:
-            fetchData(query);
-        }
-        // query === 'init793797112020979' ? fetchInitData() : fetchData(query);
-        id === null ? fetchInitMovie() : fetchCurrentMovie(id);
+      // needed for link`s share and get same result on the page
+    } else if (location.pathname === '/search') {
+      const params = new URLSearchParams(location.search);
+      const query = params.get('query');
+      const id = params.get('id');
+      switch (query) {
+        case 'init793797112020979':
+          fetchInitData();
+          break;
+        case 'Trending':
+          fetchTrandingData();
+          break;
+        case 'Top Rated':
+          fetchTopRatedData();
+          break;
+        case 'Coming soon':
+          fetchComingSoonData();
+          break;
+        default:
+          fetchData(query);
       }
+      id  === null ? fetchInitMovie() : fetchCurrentMovie(id);
+    }
   }
 
   render() {
@@ -138,5 +133,18 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getComingSoonFilms());
   },
 });
+
+MoviewList.propTypes = {
+  location: propTypes.objectOf(propTypes.any).isRequired,
+  fetchGengres: propTypes.func.isRequired,
+  fetchInitData: propTypes.func.isRequired,
+  fetchInitMovie: propTypes.func.isRequired,
+  fetchData: propTypes.func.isRequired,
+  fetchCurrentMovie: propTypes.func.isRequired,
+  fetchTrandingData: propTypes.func.isRequired,
+  fetchTopRatedData: propTypes.func.isRequired,
+  fetchComingSoonData: propTypes.func.isRequired,
+  store: propTypes.objectOf(propTypes.any).isRequired,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MoviewList));
