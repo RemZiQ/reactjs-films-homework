@@ -15,9 +15,8 @@ class Nav extends Component {
     };
   }
 
-  fetchFilmsAndGenres = (e) => {
-    // const { query } = this.props;
-    const search = this.state.searchValue;
+  fetchFilmsAndGenres = () => {
+    const { searchValue } = this.state;
     this.setState({ searchValue: '' });
     const { fetchData, fetchGengres, genres } = this.props;
     // dont use preventDefault when use REACT ROUTE <LINK> !!!!!
@@ -25,7 +24,7 @@ class Nav extends Component {
     if (!genres.length) {
       fetchGengres();
     }
-    fetchData(search);
+    fetchData(searchValue);
   };
 
   handleChangeInput = (e) => {
@@ -35,6 +34,7 @@ class Nav extends Component {
   };
 
   render() {
+    const { searchValue } = this.state;
     return (
       <nav className="pageHeader__nav">
         <div className="logo">films</div>
@@ -43,10 +43,10 @@ class Nav extends Component {
             type="search"
             className="nav__search"
             id="searchInputID"
-            value={this.state.searchValue}
+            value={searchValue}
             onChange={this.handleChangeInput}
           />
-          <Link to={{ pathname: '/search', search: `?query=${this.state.searchValue}` }}>
+          <Link to={{ pathname: '/search', search: `?query=${searchValue}` }}>
             <button onClick={this.fetchFilmsAndGenres} type="submit" className="nav__search_button" />
           </Link>
         </form>

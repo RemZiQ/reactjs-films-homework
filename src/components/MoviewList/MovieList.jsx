@@ -46,34 +46,34 @@ class MoviewList extends PureComponent {
       }
       fetchInitData();
       fetchInitMovie();
-    }
+    
     // }
     // // needed for link`s share and get same result on the page
 
 
-    //   } else if (location.pathname === '/search') {
-    //     const params = new URLSearchParams(location.search);
-    //     const query = params.get('query');
-    //     const id = params.get('id');
-    //     switch (query) {
-    //       case 'init793797112020979':
-    //         fetchInitData();
-    //         break;
-    //       case 'Trending':
-    //         fetchTrandingData();
-    //         break;
-    //       case 'Top Rated':
-    //         fetchTopRatedData();
-    //         break;
-    //       case 'Coming soon':
-    //         fetchComingSoonData();
-    //         break;
-    //       default:
-    //         fetchData(query);
-    //     }
-    //     // query === 'init793797112020979' ? fetchInitData() : fetchData(query);
-    //     id === null ? fetchInitMovie() : fetchCurrentMovie(id);
-    //   }
+      } else if (location.pathname === '/search') {
+        const params = new URLSearchParams(location.search);
+        const query = params.get('query');
+        const id = params.get('id');
+        switch (query) {
+          case 'init793797112020979':
+            fetchInitData();
+            break;
+          case 'Trending':
+            fetchTrandingData();
+            break;
+          case 'Top Rated':
+            fetchTopRatedData();
+            break;
+          case 'Coming soon':
+            fetchComingSoonData();
+            break;
+          default:
+            fetchData(query);
+        }
+        // query === 'init793797112020979' ? fetchInitData() : fetchData(query);
+        id === null ? fetchInitMovie() : fetchCurrentMovie(id);
+      }
   }
 
   render() {

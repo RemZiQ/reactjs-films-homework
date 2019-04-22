@@ -25,30 +25,24 @@ class Action extends Component {
   toogleTrailer = () => {
     const { showTrailer } = this.state;
     this.setState({ showTrailer: !showTrailer });
-  }
+  };
 
   showTrailer = () => {
-    const { fetchTrailer, setToNoError } = this.props;
-    if (this.props.currentMovie) {
-      const { id } = this.props;
-      fetchTrailer(id);
-    }
+    const { fetchTrailer } = this.props;
+    const { currentMovie } = this.props;
+    fetchTrailer(currentMovie.id);
     this.toogleTrailer();
-  }
-
-  // handle = (e) => {
-  //   handleShowTrailer();
-  //   try {
-  //     fetchTrailer(e);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  };
 
   render() {
-    const { info } = this.props;
+    const { info, setToNoError } = this.props;
     const { showInfo, showTrailer } = this.state;
     const infoToggled = showInfo ? <div className="action_info">{info}</div> : null;
+    const { currentTrailer, error } = this.props;
+    const closeTrailer = () => {
+      this.toogleTrailer();
+      setToNoError();
+    };
     // must be added trailer
     if (showTrailer) {
       return (
@@ -56,15 +50,14 @@ class Action extends Component {
           {infoToggled}
           <div className="action__buttons_container">
             <button onClick={this.showTrailer} type="button" className="action__watch">Watch now</button>
-            {console.log(this.state.showTrailer)}
             <button onClick={this.toogleInfo} type="button" className="action__view">View info</button>
             <Trailer>
               <div className="Trailer">
-                <button onClick={this.toogleTrailer} type="button" id={123} className="movieList__item__trailer_closeButton">
+                <button onClick={closeTrailer} type="button" id={123} className="movieList__item__trailer_closeButton">
                   <i className="fas fa-times" />
                 </button>
                 <TrailerError>
-                  <Iframe trailer={'something'} error={false} />
+                  <Iframe trailer={currentTrailer} error={error} />
                 </TrailerError>
               </div>
             </Trailer>
@@ -76,8 +69,7 @@ class Action extends Component {
       <div className="action_container">
         {infoToggled}
         <div className="action__buttons_container">
-          <button onClick={this.toogleTrailer} type="button" className="action__watch">Watch now</button>
-          {console.log(this.state.showTrailer)}
+          <button onClick={this.showTrailer} type="button" className="action__watch">Watch now</button>
           <button onClick={this.toogleInfo} type="button" className="action__view">View info</button>
         </div>
       </div>
@@ -87,13 +79,23 @@ class Action extends Component {
 
 Action.propTypes = {
   info: propTypes.string,
+  currentMovie: propTypes.objectOf(propTypes.any).isRequired,
+  currentTrailer: propTypes.string,
+  error: propTypes.bool.isRequired,
+  fetchTrailer: propTypes.func.isRequired,
+  setToNoError: propTypes.func.isRequired,
 };
 
 Action.defaultProps = {
   info: 'Sorry, no information here',
+  currentTrailer: 'https://www.youtube.com/watch?v=kVrqfYjkTdQ&t',
 };
 
-const mapStateToProps = store => ({ currentMovie: store.currentMovie });
+const mapStateToProps = store => ({
+  currentMovie: store.currentMovie,
+  currentTrailer: store.currentTrailer,
+  error: store.error,
+});
 const mapDispatchToProps = dispatch => ({
   fetchTrailer: (id) => {
     dispatch(getTrailer(id));

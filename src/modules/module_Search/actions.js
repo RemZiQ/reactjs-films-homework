@@ -47,6 +47,7 @@ export const getGenres = () => (dispatch) => {
 
 export const getTrailer = (ID) => {
   const id = ID;
+  console.log('id from action', id);
   return (dispatch) => {
     fetch(`${urlAPI}/movie/${id}/videos?${keyAPI}`)
       .then((response) => {

@@ -9,7 +9,6 @@ const StarRating = ({
 }) => {
   const handling = (e) => {
     e.preventDefault();
-    console.log("Some genre's search logic will be here");
   };
   const countOfStars = Math.round(rating);
   const listGenres = genres

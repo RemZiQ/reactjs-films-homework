@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import StarRating from '../MovieDetailsPageStarRating';
 import Action from '../MovieDetailsPageAction';
 import './movieDetailsPageFooter.scss';
 
-const movieDetailsPageFooter = ({ store }) => {
+const MovieDetailsPageFooter = ({ store }) => {
   if (store) {
     const genres = store.genres.map(elem => elem.name);
     const rating = store.vote_average / 2;
@@ -21,7 +22,11 @@ const movieDetailsPageFooter = ({ store }) => {
   return (<div>Loading</div>);
 };
 
+MovieDetailsPageFooter.propTypes = {
+  store: propTypes.objectOf(propTypes.any).isRequired,
+};
+
 const mapStateToProps = store => ({ store: store.currentMovie });
 
 
-export default connect(mapStateToProps, null)(movieDetailsPageFooter);
+export default connect(mapStateToProps, null)(MovieDetailsPageFooter);

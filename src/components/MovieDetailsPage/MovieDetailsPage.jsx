@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 
 import MovieDetailsPageNav from '../MovieDetailsPageNav';
@@ -27,5 +28,8 @@ const MovieDetailsPage = ({ currentMovie }) => {
 
 const mapStateToProps = store => ({ currentMovie: store.currentMovie });
 
+MovieDetailsPage.propTypes = {
+  currentMovie: propTypes.objectOf(propTypes.any).isRequired,
+};
 
 export default connect(mapStateToProps, null)(MovieDetailsPage);

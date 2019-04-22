@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import propTypes from 'prop-types';
 
 import MovieDetailsPage from './components/MovieDetailsPage';
 import MovieList from './components/MoviewList';
@@ -16,6 +17,10 @@ const App = ({ location }) => {
       </Switch>
     </div>
   );
+};
+
+App.propTypes = {
+  location: propTypes.objectOf(propTypes.any).isRequired,
 };
 
 export default App;
