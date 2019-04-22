@@ -8,7 +8,7 @@
     "build": "webpack --config config/webpack/webpack.production.config.js",
     "start": "set NODE_ENV=development && node server.js",
     "prod": "set NODE_ENV=production && node server.js ",
-    "stylelint": "npx stylelint src/**/**.css",
+    "stylelint": "npx stylelint src/**/**.scss",
     "lint": "npx eslint --ext .jsx --ext .js src",
     "fix": "npx eslint --fix --ext .jsx --ext .js src"
   },

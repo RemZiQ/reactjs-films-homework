@@ -1,9 +1,10 @@
-.modalRoot{
+.modalRoot {
   position: relative;
   z-index: 999;
 }
-.Trailer{
-  position:fixed;
+
+.Trailer {
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -14,7 +15,8 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.9);
 }
-.movieList__item__trailer_closeButton{
+
+.movieList__item__trailer_closeButton {
   width: 30px;
   height: 30px;
   margin-left: 33%;
@@ -26,12 +28,15 @@
   outline: none;
   color: white;
 }
-.movieList__item__trailer_closeButton:active{
+
+.movieList__item__trailer_closeButton:active {
   color: rgb(105, 103, 103);
 }
-.movieList__item__trailer_closeButton .fa-times{
+
+.movieList__item__trailer_closeButton .fa-times {
   font-size: 25px;
 }
-.movieList__item__trailer_closeButton_error{
+
+.movieList__item__trailer_closeButton_error {
   margin-bottom: 0;
 }

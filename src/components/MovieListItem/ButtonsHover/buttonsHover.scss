@@ -1,43 +1,47 @@
 
-.movieList__item_buttons_container_show{
+.movieList__item_buttons_container_show {
   position: absolute;
   top: 30%;
   left: 25%;
   display: block;
-
 }
-.movieList__item__button_watch_container{
+
+.movieList__item__button_watch_container {
   width: 200px;
   margin: 0 auto;
   padding-top: 100px;
 }
-.movieList__item__button_watch{
+
+.movieList__item__button_watch {
   position: relative;
   width: 75px;
   height: 75px;
   margin-left: 63px;
   background-color: white;
 }
-.movieList__item__button_watch::after{
+
+.movieList__item__button_watch::after {
   position: absolute;
-  top: -25px;;
+  top: -25px;
   left: -25px;
   font-family: "Font Awesome 5 Free";
   font-size: 120px;
   font-weight: 900;
   content: "\f144";
-  color:  rgb(9, 188, 201);
+  color: rgb(9, 188, 201);
 }
-.movieList__item__button_watch_container p{
+
+.movieList__item__button_watch_container p {
   margin-top: 30px;
   font-size: 28px;
   letter-spacing: 1px;
   line-height: 44px;
-  color: #ffffff;
+  color: #fff;
   font-family: "Helvetica Neue";
   text-align: center;
 }
-.movieList__item__button_view{
+
+.movieList__item__button_view {
   display: block;
   height: 60px;
   width: 199px;

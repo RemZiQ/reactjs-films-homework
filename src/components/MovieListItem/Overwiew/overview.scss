@@ -1,5 +1,5 @@
 
-.movieList__item__overview{
+.movieList__item__overview {
   position: relative;
   box-sizing: border-box;
   height: 100%;
@@ -7,23 +7,25 @@
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.movieList__item__overviewDetails{
+
+.movieList__item__overviewDetails {
   max-height: 270px;
   font-size: 20px;
   line-height: 30px;
-  color: #ffffff;
-  font-family: "Helvetica Neue";
-  overflow: hidden; 
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
-.overview__watch{
+
+.overview__watch {
   position: absolute;
   bottom: 75px;
 }
 
 // close buttton 
 
-.movieList__item__closeOverview{
+.movieList__item__closeOverview {
   width: 30px;
   height: 30px;
   text-align: center;
@@ -33,15 +35,15 @@
   outline: none;
   color: white;
 }
-.movieList__item__closeOverview:active{
+
+.movieList__item__closeOverview:active {
   color: rgb(105, 103, 103);
 }
-.movieList__item__closeOverview .fa-times{
+
+.movieList__item__closeOverview .fa-times {
   font-size: 25px;
 }
-.movieList__item_bgOverwiew{
+
+.movieList__item_bgOverwiew {
   height: 100%;
 }
-
-
-//

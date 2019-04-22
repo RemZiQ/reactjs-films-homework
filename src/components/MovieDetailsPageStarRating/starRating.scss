@@ -25,7 +25,6 @@ h1 {
 
 .starRating__genres ul {
   display: flex;
-  // justify-content: space-between;
   width: 100%;
 }
 
@@ -33,7 +32,8 @@ h1 {
   display: inline-flex;
   margin-right: 15px;
 }
-.starRating__genres li button{
+
+.starRating__genres li button {
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
   border: none;

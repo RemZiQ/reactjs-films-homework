@@ -43,7 +43,6 @@ class Action extends Component {
       this.toogleTrailer();
       setToNoError();
     };
-    // must be added trailer
     if (showTrailer) {
       return (
         <div className="action_container">
@@ -88,7 +87,7 @@ Action.propTypes = {
 
 Action.defaultProps = {
   info: 'Sorry, no information here',
-  currentTrailer: 'https://www.youtube.com/watch?v=kVrqfYjkTdQ&t',
+  currentTrailer: 'https://www.youtube.com/embed/kVrqfYjkTdQ&t',
 };
 
 const mapStateToProps = store => ({

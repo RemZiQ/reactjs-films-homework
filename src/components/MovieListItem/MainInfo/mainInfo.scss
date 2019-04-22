@@ -1,18 +1,19 @@
-.movieList__item__mainInfo{
+.movieList__item__mainInfo {
   position: relative;
 }
-.movieList__item_genresList li{
+
+.movieList__item_genresList li {
   display: inline-block;
   margin-right: 5px;
-  color:  #47c3f0;
+  color: #47c3f0;
   font-size: 18px;
   letter-spacing: 1px;
   line-height: 33px;
-  color: #47c3f0;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: 500;
 }
-.movieList__item_mark{
+
+.movieList__item_mark {
   position: absolute;
   display: inline-block;
   box-sizing: border-box;
@@ -23,18 +24,19 @@
   border: 2px solid #47c3f0;
   border-radius: 5px;
   font-weight: bold;
-  color:  #47c3f0;
+  color: #47c3f0;
 }
-.movieList__item_title{
+
+.movieList__item_title {
   display: inline-block;
   width: 70%;
   margin-right: 10%;
   font-size: 28px;
   letter-spacing: 1px;
   line-height: 44px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: bold;
   white-space: nowrap;
-  overflow: hidden; 
+  overflow: hidden;
   text-overflow: ellipsis;
 }
