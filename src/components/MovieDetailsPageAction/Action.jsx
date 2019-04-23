@@ -8,7 +8,7 @@ import TrailerError from '../MovieListItem/TrailerError';
 import Iframe from '../MovieListItem/Trailer/Iframe';
 import './action.scss';
 
-class Action extends Component {
+export class Action extends Component {
   constructor(props) {
     super(props);
     this.state = {

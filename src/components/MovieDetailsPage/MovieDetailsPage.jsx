@@ -8,7 +8,7 @@ import MovieDetailsPageFooter from '../MovieDetailsPageFooter';
 import './movieDetailsPage.scss';
 
 
-const MovieDetailsPage = ({ currentMovie }) => {
+export const MovieDetailsPage = ({ currentMovie }) => {
   const urlImage = 'https://image.tmdb.org/t/p/original';
   if (currentMovie) {
     const style = {
@@ -17,7 +17,11 @@ const MovieDetailsPage = ({ currentMovie }) => {
       url(${urlImage}${currentMovie.backdrop_path}) no-repeat black`,
     };
     return (
-      <header className="pageHeader" style={style} id="pageHeaderID">
+      <header
+        className="pageHeader"
+        style={style}
+        id="pageHeaderID"
+      >
         <MovieDetailsPageNav />
         <MovieDetailsPageFooter />
       </header>

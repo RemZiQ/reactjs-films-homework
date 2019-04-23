@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav renders well 1`] = `
+<nav
+  className="pageHeader__nav"
+>
+  <div
+    className="logo"
+  >
+    films
+  </div>
+  <form
+    className="nav__form_search"
+    method="get"
+  >
+    <input
+      className="nav__search"
+      id="searchInputID"
+      onChange={[Function]}
+      type="search"
+      value=""
+    />
+    <Link
+      to={
+        Object {
+          "pathname": "/search",
+          "search": "?query=",
+        }
+      }
+    >
+      <button
+        className="nav__search_button"
+        onClick={[Function]}
+        type="submit"
+      />
+    </Link>
+  </form>
+</nav>
+`;

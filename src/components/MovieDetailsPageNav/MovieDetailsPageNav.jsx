@@ -7,7 +7,7 @@ import { getFilms, getGenres } from '../../modules/module_Search/actions';
 
 import './movieDetailsPageNav.scss';
 
-class Nav extends Component {
+export class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,9 +56,15 @@ class Nav extends Component {
 }
 
 Nav.propTypes = {
-  fetchData: propTypes.func.isRequired,
-  fetchGengres: propTypes.func.isRequired,
-  genres: propTypes.arrayOf(propTypes.object).isRequired,
+  fetchData: propTypes.func,
+  fetchGengres: propTypes.func,
+  genres: propTypes.arrayOf(propTypes.object),
+};
+
+Nav.defaultProps = {
+  fetchData: null,
+  fetchGengres: null,
+  genres: null,
 };
 
 const mapStateToProps = store => ({ genres: store.genres });

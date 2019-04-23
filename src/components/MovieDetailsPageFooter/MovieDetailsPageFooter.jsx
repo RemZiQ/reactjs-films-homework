@@ -6,15 +6,21 @@ import StarRating from '../MovieDetailsPageStarRating';
 import Action from '../MovieDetailsPageAction';
 import './movieDetailsPageFooter.scss';
 
-const MovieDetailsPageFooter = ({ store }) => {
+export const MovieDetailsPageFooter = ({ store }) => {
   if (store) {
-    const { genres } = store;
+    const { genres, id } = store;
     const rating = store.vote_average / 2;
     const hour = (store.runtime - (store.runtime % 60)) / 60;
     const duration = `${hour}h ${store.runtime - 60 * hour}m`;
     return (
       <div className="movieDetailsPage__footer">
-        <StarRating title={store.title} genres={genres} duration={duration} rating={rating} />
+        <StarRating
+          title={store.title}
+          genres={genres}
+          duration={duration}
+          rating={rating}
+          id={id}
+        />
         <Action info={store.overview} />
       </div>
     );
@@ -23,7 +29,11 @@ const MovieDetailsPageFooter = ({ store }) => {
 };
 
 MovieDetailsPageFooter.propTypes = {
-  store: propTypes.objectOf(propTypes.any).isRequired,
+  store: propTypes.objectOf(propTypes.any),
+};
+
+MovieDetailsPageFooter.defaultProps = {
+  store: null,
 };
 
 const mapStateToProps = store => ({ store: store.currentMovie });
