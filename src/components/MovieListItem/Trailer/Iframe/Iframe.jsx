@@ -11,8 +11,13 @@ const Iframe = ({ trailer, error }) => {
 };
 
 Iframe.propTypes = {
-  trailer: propTypes.string.isRequired,
-  error: propTypes.bool.isRequired,
+  trailer: propTypes.string,
+  error: propTypes.bool,
+};
+
+Iframe.defaultProps = {
+  trailer: null,
+  error: null,
 };
 
 export default Iframe;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1556194586545" clover="3.2.0">
-  <project timestamp="1556194586545" name="All files">
-    <metrics statements="302" coveredstatements="90" conditionals="75" coveredconditionals="15" methods="137" coveredmethods="21" elements="514" coveredelements="126" complexity="0" loc="302" ncloc="302" packages="20" files="37" classes="37"/>
+<coverage generated="1556195869363" clover="3.2.0">
+  <project timestamp="1556195869364" name="All files">
+    <metrics statements="304" coveredstatements="92" conditionals="75" coveredconditionals="15" methods="137" coveredmethods="21" elements="516" coveredelements="128" complexity="0" loc="304" ncloc="304" packages="20" files="37" classes="37"/>
     <package name="src">
       <metrics statements="11" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="App.jsx" path="C:\Users\Yehor_Remizov\Progects\Lab_react_app\Part_4_example\reactjs-films-homework\src\App.jsx">
@@ -26,9 +26,9 @@
       </file>
     </package>
     <package name="src.components.MovieDetailsPage">
-      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <file name="MovieDetailsPage.jsx" path="C:\Users\Yehor_Remizov\Progects\Lab_react_app\Part_4_example\reactjs-films-homework\src\components\MovieDetailsPage\MovieDetailsPage.jsx">
-        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
@@ -37,6 +37,7 @@
         <line num="30" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Users\Yehor_Remizov\Progects\Lab_react_app\Part_4_example\reactjs-films-homework\src\components\MovieDetailsPage\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -67,10 +68,10 @@
         <line num="47" count="3" type="stmt"/>
         <line num="71" count="3" type="stmt"/>
         <line num="80" count="3" type="stmt"/>
-        <line num="85" count="3" type="stmt"/>
-        <line num="90" count="3" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
+        <line num="89" count="3" type="stmt"/>
+        <line num="94" count="3" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Users\Yehor_Remizov\Progects\Lab_react_app\Part_4_example\reactjs-films-homework\src\components\MovieDetailsPageAction\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -259,14 +260,15 @@
       </file>
     </package>
     <package name="src.components.MovieListItem.Trailer.Iframe">
-      <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="6" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Iframe.jsx" path="C:\Users\Yehor_Remizov\Progects\Lab_react_app\Part_4_example\reactjs-films-homework\src\components\MovieListItem\Trailer\Iframe\Iframe.jsx">
-        <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="3" type="stmt"/>
         <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="6" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Users\Yehor_Remizov\Progects\Lab_react_app\Part_4_example\reactjs-films-homework\src\components\MovieListItem\Trailer\Iframe\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

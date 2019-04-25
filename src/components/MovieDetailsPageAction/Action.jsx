@@ -70,16 +70,20 @@ export class Action extends Component {
 
 Action.propTypes = {
   info: propTypes.string,
-  currentMovie: propTypes.objectOf(propTypes.any).isRequired,
+  currentMovie: propTypes.objectOf(propTypes.any),
   currentTrailer: propTypes.string,
-  error: propTypes.bool.isRequired,
-  fetchTrailer: propTypes.func.isRequired,
-  setToNoError: propTypes.func.isRequired,
+  error: propTypes.bool,
+  fetchTrailer: propTypes.func,
+  setToNoError: propTypes.func,
 };
 
 Action.defaultProps = {
   info: 'Sorry, no information here',
   currentTrailer: 'https://www.youtube.com/embed/kVrqfYjkTdQ&t',
+  currentMovie: null,
+  error: null,
+  fetchTrailer: null,
+  setToNoError: null,
 };
 
 const mapStateToProps = store => ({

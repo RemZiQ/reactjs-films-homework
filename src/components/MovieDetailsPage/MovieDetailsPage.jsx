@@ -33,7 +33,11 @@ export const MovieDetailsPage = ({ currentMovie }) => {
 const mapStateToProps = store => ({ currentMovie: store.currentMovie });
 
 MovieDetailsPage.propTypes = {
-  currentMovie: propTypes.objectOf(propTypes.any).isRequired,
+  currentMovie: propTypes.objectOf(propTypes.any),
+};
+
+MovieDetailsPage.defaultProps = {
+  currentMovie: null,
 };
 
 export default connect(mapStateToProps, null)(MovieDetailsPage);

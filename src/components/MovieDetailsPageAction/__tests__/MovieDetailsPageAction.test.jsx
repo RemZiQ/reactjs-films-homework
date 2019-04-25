@@ -11,7 +11,6 @@ it('StarRating renders well without and with state { showTrailer: true }', () =>
   const handler = result.props.children[1].props.children[0].props.onClick;
   handler();
   result = renderer.getRenderOutput();
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', result.toogleTrailer);
   expect(result).toMatchSnapshot();
 });
 
