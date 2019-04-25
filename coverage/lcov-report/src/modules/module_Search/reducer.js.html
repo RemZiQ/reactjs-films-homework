@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -71,52 +71,52 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const initialState = <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const initialState = {
   data: {},
   genres: [],
   error: false,
 };
 &nbsp;
-function <span class="fstat-no" title="function not covered" >reducer(</span>state = <span class="branch-0 cbranch-no" title="branch not covered" >initialState,</span> action) {
-<span class="cstat-no" title="statement not covered" >  switch (action.type) {</span>
+function reducer(state = initialState, action) {
+  switch (action.type) {
     case 'FETCH__DATA':
-<span class="cstat-no" title="statement not covered" >      return { ...state, ...{ data: action.payload } };</span>
+      return { ...state, ...{ data: action.payload } };
     case 'FETCH_GENRES':
-<span class="cstat-no" title="statement not covered" >      return { ...state, ...{ genres: [...action.payload.genres] } };</span>
+      return { ...state, ...{ genres: [...action.payload.genres] } };
     case 'FETCH_TRAILER':
-<span class="cstat-no" title="statement not covered" >      return { ...state, ...{ currentTrailer: action.payload } };</span>
+      return { ...state, ...{ currentTrailer: action.payload } };
     case 'ERROR_TRAILER':
-<span class="cstat-no" title="statement not covered" >      return { ...state, ...{ error: true } };</span>
+      return { ...state, ...{ error: true } };
     case 'NO_ERROR_TRAILER':
-<span class="cstat-no" title="statement not covered" >      return { ...state, ...{ error: false } };</span>
+      return { ...state, ...{ error: false } };
     case 'FETCH__MOVIE':
-<span class="cstat-no" title="statement not covered" >      return { ...state, ...{ currentMovie: action.payload } };</span>
-    default: <span class="cstat-no" title="statement not covered" >return state;</span>
+      return { ...state, ...{ currentMovie: action.payload } };
+    default: return state;
   }
 }
 &nbsp;
@@ -127,7 +127,7 @@ export default reducer;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Apr 23 2019 20:46:33 GMT+0300 (Moscow Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Apr 25 2019 15:16:26 GMT+0300 (Moscow Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

@@ -4,3 +4,7 @@ node_modules
 *.log
 dist
 package-lock.json
+
+# Ignore test-related files
+
+coverage

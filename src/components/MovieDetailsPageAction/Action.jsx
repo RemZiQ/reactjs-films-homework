@@ -15,16 +15,12 @@ export class Action extends Component {
       showInfo: false,
       showTrailer: false,
     };
+    this.toogleTrailer.bind(this);
   }
 
   toogleInfo = () => {
     const { showInfo } = this.state;
     this.setState({ showInfo: !showInfo });
-  };
-
-  toogleTrailer = () => {
-    const { showTrailer } = this.state;
-    this.setState({ showTrailer: !showTrailer });
   };
 
   showTrailer = () => {
@@ -33,6 +29,11 @@ export class Action extends Component {
     fetchTrailer(currentMovie.id);
     this.toogleTrailer();
   };
+
+  toogleTrailer() {
+    const { showTrailer } = this.state;
+    this.setState({ showTrailer: !showTrailer });
+  }
 
   render() {
     const { info, setToNoError } = this.props;
@@ -43,13 +44,13 @@ export class Action extends Component {
       this.toogleTrailer();
       setToNoError();
     };
-    if (showTrailer) {
-      return (
-        <div className="action_container">
-          {infoToggled}
-          <div className="action__buttons_container">
-            <button onClick={this.showTrailer} type="button" className="action__watch">Watch now</button>
-            <button onClick={this.toogleInfo} type="button" className="action__view">View info</button>
+    return (
+      <div className="action_container">
+        {infoToggled}
+        <div className="action__buttons_container">
+          <button onClick={this.showTrailer} type="button" className="action__watch">Watch now</button>
+          <button onClick={this.toogleInfo} type="button" className="action__view">View info</button>
+          {showTrailer ? (
             <Trailer>
               <div className="Trailer">
                 <button onClick={closeTrailer} type="button" id={123} className="movieList__item__trailer_closeButton">
@@ -60,16 +61,7 @@ export class Action extends Component {
                 </TrailerError>
               </div>
             </Trailer>
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className="action_container">
-        {infoToggled}
-        <div className="action__buttons_container">
-          <button onClick={this.showTrailer} type="button" className="action__watch">Watch now</button>
-          <button onClick={this.toogleInfo} type="button" className="action__view">View info</button>
+          ) : null}
         </div>
       </div>
     );
