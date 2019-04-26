@@ -67,7 +67,7 @@ class MoviewList extends PureComponent {
         default:
           fetchData(query);
       }
-      id  === null ? fetchInitMovie() : fetchCurrentMovie(id);
+      !!id ? fetchInitMovie() : fetchCurrentMovie(id);
     }
   }
 

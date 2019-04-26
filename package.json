@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest -u",
     "build": "webpack --config config/webpack/webpack.production.config.js",
     "start": "set NODE_ENV=development && node server.js",
     "prod": "set NODE_ENV=production && node server.js ",
