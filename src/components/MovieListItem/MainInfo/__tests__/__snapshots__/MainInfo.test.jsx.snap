@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainInfo renders well with storeGenres 1`] = `
+<div
+  className="movieList__item__overview__mainInfo"
+>
+  <h2
+    className="movieList__item_title"
+  >
+    Sorry, no title here
+  </h2>
+  <div
+    className="movieList__item_mark"
+  >
+    Sorry, no mark here
+  </div>
+  <ul
+    className="movieList__item_genresList"
+  >
+    <li>
+      someGenre
+    </li>
+    <li>
+      someGenre2
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`MainInfo renders well without storeGenres 1`] = `
+<div
+  className="movieList__item__overview__mainInfo"
+>
+  <h2
+    className="movieList__item_title"
+  >
+    Sorry, no title here
+  </h2>
+  <div
+    className="movieList__item_mark"
+  >
+    Sorry, no mark here
+  </div>
+  <ul
+    className="movieList__item_genresList"
+  >
+    
+  </ul>
+</div>
+`;

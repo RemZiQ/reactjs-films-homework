@@ -6,7 +6,7 @@ import propTypes from 'prop-types';
 import { getTrandingFilms, getTopRated, getComingSoonFilms } from '../../../modules/module_Search/actions';
 import './movieLIstHeader.scss';
 
-const MovieListHeader = ({
+export const MovieListHeader = ({
   fetchTrandingData,
   fetchTopRatedData,
   fetchComingSoonData,
@@ -52,9 +52,15 @@ const mapDispatchToProps = dispatch => ({
 
 
 MovieListHeader.propTypes = {
-  fetchTrandingData: propTypes.func.isRequired,
-  fetchTopRatedData: propTypes.func.isRequired,
-  fetchComingSoonData: propTypes.func.isRequired,
+  fetchTrandingData: propTypes.func,
+  fetchTopRatedData: propTypes.func,
+  fetchComingSoonData: propTypes.func,
+};
+
+MovieListHeader.defaultProps = {
+  fetchTrandingData: null,
+  fetchTopRatedData: null,
+  fetchComingSoonData: null,
 };
 
 

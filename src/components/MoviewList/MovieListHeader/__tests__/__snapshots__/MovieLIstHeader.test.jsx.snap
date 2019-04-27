@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StarRating renders well without and with state { showTrailer: true } 1`] = `
+<nav
+  className="movieListNav"
+>
+  <ul>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Trending",
+          }
+        }
+      >
+        <button
+          onClick={null}
+          type="submit"
+        >
+          Trending
+        </button>
+      </Link>
+    </li>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Top Rated",
+          }
+        }
+      >
+        <button
+          onClick={null}
+          type="submit"
+        >
+          Top Rated
+        </button>
+      </Link>
+    </li>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Coming soon",
+          }
+        }
+      >
+        <button
+          onClick={null}
+          type="submit"
+        >
+          Coming soon
+        </button>
+      </Link>
+    </li>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Genre",
+          }
+        }
+      >
+        <button
+          type="submit"
+        >
+          Genre
+        </button>
+      </Link>
+    </li>
+  </ul>
+</nav>
+`;

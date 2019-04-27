@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
 import './trailerError.scss';
+import Trailer from '../Trailer/Trailer';
 
-class TrailerError extends Component {
+export class TrailerError extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
@@ -30,7 +31,11 @@ class TrailerError extends Component {
 
 
 TrailerError.propTypes = {
-  children: propTypes.node.isRequired,
+  children: propTypes.node,
+};
+
+TrailerError.defaultProps = {
+  children: <div />,
 };
 
 export default TrailerError;

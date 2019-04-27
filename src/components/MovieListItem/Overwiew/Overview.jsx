@@ -5,7 +5,7 @@ import MainInfo from '../MainInfo';
 import './overview.scss';
 
 
-const Overview = ({
+export const Overview = ({
   id,
   overview,
   title,
@@ -34,20 +34,25 @@ const Overview = ({
 
 
 Overview.propTypes = {
-  id: propTypes.number.isRequired,
+  id: propTypes.number,
   title: propTypes.string,
   mark: propTypes.number,
-  genres: propTypes.arrayOf(propTypes.number).isRequired,
+  genres: propTypes.arrayOf(propTypes.number),
   overview: propTypes.string,
-  handleClose: propTypes.func.isRequired,
-  handleForFetchTrailer: propTypes.func.isRequired,
-  handleForOpenModal: propTypes.func.isRequired,
+  handleClose: propTypes.func,
+  handleForFetchTrailer: propTypes,
+  handleForOpenModal: propTypes,
 };
 
 Overview.defaultProps = {
   title: 'Sorry here is no title',
   mark: 1,
   overview: 'Sorry here is no info',
+  id: null,
+  genres: [],
+  handleClose: null,
+  handleForFetchTrailer: null,
+  handleForOpenModal: null,
 };
 
 export default Overview;

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { getCurrentMovie } from '../../../modules/module_Search/actions';
 import './buttonsHover.scss';
 
-const ButtonHover = ({
+export const ButtonHover = ({
   id,
   handleOpenOverview,
   fetchTrailer,
@@ -58,12 +58,21 @@ const ButtonHover = ({
 };
 
 ButtonHover.propTypes = {
-  id: propTypes.number.isRequired,
-  handleOpenOverview: propTypes.func.isRequired,
-  fetchTrailer: propTypes.func.isRequired,
-  handleShowTrailer: propTypes.func.isRequired,
-  location: propTypes.objectOf(propTypes.any).isRequired,
-  fetchMovie: propTypes.func.isRequired,
+  id: propTypes.number,
+  handleOpenOverview: propTypes.func,
+  fetchTrailer: propTypes.func,
+  handleShowTrailer: propTypes.func,
+  location: propTypes.objectOf(propTypes.any),
+  fetchMovie: propTypes.func,
+};
+
+ButtonHover.defaultProps = {
+  id: null,
+  handleOpenOverview: null,
+  fetchTrailer: null,
+  handleShowTrailer: null,
+  location: null,
+  fetchMovie: null,
 };
 
 const mapDispatchToProps = dispatch => ({

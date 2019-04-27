@@ -19,7 +19,7 @@ import MovieListHeader from './MovieListHeader';
 import './movieList.scss';
 
 
-class MoviewList extends PureComponent {
+export class MoviewList extends PureComponent {
   constructor(props) {
     super(props);
     this.listOfMovieItems = '';
@@ -135,16 +135,29 @@ const mapDispatchToProps = dispatch => ({
 });
 
 MoviewList.propTypes = {
-  location: propTypes.objectOf(propTypes.any).isRequired,
-  fetchGengres: propTypes.func.isRequired,
-  fetchInitData: propTypes.func.isRequired,
-  fetchInitMovie: propTypes.func.isRequired,
-  fetchData: propTypes.func.isRequired,
-  fetchCurrentMovie: propTypes.func.isRequired,
-  fetchTrandingData: propTypes.func.isRequired,
-  fetchTopRatedData: propTypes.func.isRequired,
-  fetchComingSoonData: propTypes.func.isRequired,
-  store: propTypes.objectOf(propTypes.any).isRequired,
+  location: propTypes.objectOf(propTypes.any),
+  fetchGengres: propTypes.func,
+  fetchInitData: propTypes.func,
+  fetchInitMovie: propTypes.func,
+  fetchData: propTypes.func,
+  fetchCurrentMovie: propTypes.func,
+  fetchTrandingData: propTypes.func,
+  fetchTopRatedData: propTypes.func,
+  fetchComingSoonData: propTypes.func,
+  store: propTypes.objectOf(propTypes.any),
+};
+
+MoviewList.defaultProps = {
+  location: null,
+  fetchGengres: null,
+  fetchInitData: null,
+  fetchInitMovie: null,
+  fetchData: null,
+  fetchCurrentMovie: null,
+  fetchTrandingData: null,
+  fetchTopRatedData: null,
+  fetchComingSoonData: null,
+  store: null,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MoviewList));

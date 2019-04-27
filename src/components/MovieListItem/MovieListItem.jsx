@@ -12,7 +12,7 @@ import { getTrailer, noError } from '../../modules/module_Search/actions';
 import './movieListItem.scss';
 
 
-class MovieListItem extends Component {
+export class MovieListItem extends Component {
   constructor(props) {
     super(props);
     this.state = { visibleOverview: false, visibleButtons: false, showTrailer: false };

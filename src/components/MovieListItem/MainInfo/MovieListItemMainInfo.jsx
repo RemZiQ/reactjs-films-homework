@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './mainInfo.scss';
 
 
-const MainInfo = ({
+export const MainInfo = ({
   title, mark, genres, storeGenres,
 }) => {
   const mapGenres = storeGenres;
@@ -27,14 +27,16 @@ const MainInfo = ({
 
 MainInfo.propTypes = {
   title: propTypes.string,
-  mark: propTypes.number,
-  genres: propTypes.arrayOf(propTypes.number).isRequired,
-  storeGenres: propTypes.arrayOf(propTypes.object).isRequired,
+  mark: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  genres: propTypes.arrayOf(propTypes.number),
+  storeGenres: propTypes.arrayOf(propTypes.object),
 };
 
 MainInfo.defaultProps = {
   title: 'Sorry, no title here',
   mark: 'Sorry, no mark here',
+  storeGenres: [{ id: 1, name: 'someGenre' }],
+  genres: [1],
 };
 
 

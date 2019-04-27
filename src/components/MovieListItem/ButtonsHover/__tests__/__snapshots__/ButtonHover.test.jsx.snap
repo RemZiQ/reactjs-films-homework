@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonHover renders well with query 1`] = `
+<div
+  className="movieList__item_buttons_container"
+  id="null"
+>
+  <div
+    className="movieList__item__button_watch_container"
+  >
+    <button
+      className="movieList__item__button_watch"
+      id={null}
+      onClick={[Function]}
+      type="button"
+    />
+    <p>
+      Watch now
+    </p>
+  </div>
+  <Link
+    to={
+      Object {
+        "pathname": "/search",
+        "search": "?query=red&id=null",
+      }
+    }
+  >
+    <button
+      className="movieList__item__button_view"
+      id="null"
+      onClick={[Function]}
+      type="button"
+    >
+      View info
+    </button>
+  </Link>
+</div>
+`;
+
+exports[`ButtonHover renders well without query 1`] = `
+<div
+  className="movieList__item_buttons_container"
+  id="null"
+>
+  <div
+    className="movieList__item__button_watch_container"
+  >
+    <button
+      className="movieList__item__button_watch"
+      id={null}
+      onClick={[Function]}
+      type="button"
+    />
+    <p>
+      Watch now
+    </p>
+  </div>
+  <Link
+    to={
+      Object {
+        "pathname": "/search",
+        "search": "?query=init793797112020979&id=null",
+      }
+    }
+  >
+    <button
+      className="movieList__item__button_view"
+      id="null"
+      onClick={[Function]}
+      type="button"
+    >
+      View info
+    </button>
+  </Link>
+</div>
+`;

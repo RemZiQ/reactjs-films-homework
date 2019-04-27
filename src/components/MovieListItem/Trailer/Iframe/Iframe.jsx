@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-const Iframe = ({ trailer, error }) => {
+export const Iframe = ({ trailer, error }) => {
   if (error === true) {
     throw new Error('Here is no trailer');
   }
@@ -16,8 +16,8 @@ Iframe.propTypes = {
 };
 
 Iframe.defaultProps = {
-  trailer: null,
-  error: null,
+  trailer: 'sorry here is no trailer',
+  error: false,
 };
 
 export default Iframe;

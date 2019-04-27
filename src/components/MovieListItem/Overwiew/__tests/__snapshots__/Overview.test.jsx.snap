@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overview renders well 1`] = `
+<div
+  className="movieList__item__overview"
+  id="overviewnull"
+>
+  <button
+    className="movieList__item__closeOverview"
+    id="closeOverviewnull"
+    onClick={null}
+    type="submit"
+  >
+    <i
+      className="fas fa-times"
+    />
+  </button>
+  <Connect(MainInfo)
+    genres={Array []}
+    mark={1}
+    title="Sorry here is no title"
+  />
+  <div
+    className="movieList__item__overviewDetails"
+  >
+    Sorry here is no info
+  </div>
+  <button
+    className="action__watch overview__watch"
+    id={null}
+    onClick={[Function]}
+    type="button"
+  >
+    Watch now
+  </button>
+</div>
+`;
