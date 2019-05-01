@@ -1,25 +1,13 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
-import {
-  getInitFilms,
-  getGenres,
-  getFilms,
-  getInitMovie,
-  getCurrentMovie,
-  getTrandingFilms,
-  getTopRated,
-  getComingSoonFilms,
-} from '../../modules/module_Search/actions';
 
 import MovieListItem from '../MovieListItem';
 import MovieListHeader from './MovieListHeader';
 import './movieList.scss';
 
 
-export class MoviewList extends PureComponent {
+class MoviewList extends PureComponent {
   constructor(props) {
     super(props);
     this.listOfMovieItems = '';
@@ -106,33 +94,6 @@ MoviewList.propTypes = {
   ).isRequired,
 };
 
-const mapStateToProps = state => ({ store: state });
-const mapDispatchToProps = dispatch => ({
-  fetchInitData: () => {
-    dispatch(getInitFilms());
-  },
-  fetchInitMovie: () => {
-    dispatch(getInitMovie());
-  },
-  fetchCurrentMovie: (id) => {
-    dispatch(getCurrentMovie(id));
-  },
-  fetchData: (search) => {
-    dispatch(getFilms(search));
-  },
-  fetchGengres: () => {
-    dispatch(getGenres());
-  },
-  fetchTrandingData: (id) => {
-    dispatch(getTrandingFilms(id));
-  },
-  fetchTopRatedData: () => {
-    dispatch(getTopRated());
-  },
-  fetchComingSoonData: () => {
-    dispatch(getComingSoonFilms());
-  },
-});
 
 MoviewList.propTypes = {
   location: propTypes.objectOf(propTypes.any),
@@ -160,4 +121,4 @@ MoviewList.defaultProps = {
   store: null,
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MoviewList));
+export default MoviewList;

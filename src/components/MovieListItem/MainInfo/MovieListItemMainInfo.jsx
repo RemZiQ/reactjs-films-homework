@@ -1,11 +1,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import './mainInfo.scss';
 
 
-export const MainInfo = ({
+const MainInfo = ({
   title, mark, genres, storeGenres,
 }) => {
   const mapGenres = storeGenres;
@@ -39,9 +38,4 @@ MainInfo.defaultProps = {
   genres: [1],
 };
 
-
-const mapStateToProps = store => ({ storeGenres: store.genres });
-
-export default connect(
-  mapStateToProps, null,
-)(MainInfo);
+export default MainInfo;

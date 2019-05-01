@@ -1,7 +1,7 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
-import { MovieListHeader } from '../MovieListHEader';
+import MovieListHeader from '../MovieListHEader';
 
 
 it('StarRating renders well without and with state { showTrailer: true }', () => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 import propTypes from 'prop-types';
 
 import MainInfo from './MainInfo';
@@ -8,14 +8,14 @@ import Overview from './Overwiew';
 import Trailer from './Trailer';
 import TrailerError from './TrailerError';
 import Iframe from './Trailer/Iframe';
-import { getTrailer, noError } from '../../modules/module_Search/actions';
 import './movieListItem.scss';
 
 
-export class MovieListItem extends Component {
+class MovieListItem extends Component {
   constructor(props) {
     super(props);
     this.state = { visibleOverview: false, visibleButtons: false, showTrailer: false };
+    this.handleShowTrailer = this.handleShowTrailer.bind(this);
   }
 
   handleVisibleButtons = () => {
@@ -45,19 +45,19 @@ export class MovieListItem extends Component {
     }));
   };
 
-  handleShowTrailer = () => {
-    const { showTrailer } = this.state;
-    this.setState(() => ({
-      showTrailer: !showTrailer,
-      visibleButtons: false,
-    }));
-  };
-
   handleForFetchTrailer = (e) => {
     const { fetchTrailer } = this.props;
     const ID = e.target.id;
     fetchTrailer(ID);
   };
+
+  handleShowTrailer() {
+    const { showTrailer } = this.state;
+    this.setState(() => ({
+      showTrailer: !showTrailer,
+      visibleButtons: false,
+    }));
+  }
 
   render() {
     const { visibleButtons, visibleOverview, showTrailer } = this.state;
@@ -146,15 +146,15 @@ export class MovieListItem extends Component {
 
 MovieListItem.propTypes = {
   fetchTrailer: propTypes.func.isRequired,
-  id: propTypes.number.isRequired,
+  id: propTypes.number,
   title: propTypes.string,
   mark: propTypes.number,
-  genres: propTypes.arrayOf(propTypes.number).isRequired,
+  genres: propTypes.arrayOf(propTypes.number),
   overview: propTypes.string,
-  imageUrl: propTypes.string.isRequired,
+  imageUrl: propTypes.string,
   trailer: propTypes.string,
   error: propTypes.bool.isRequired,
-  setToNoError: propTypes.func.isRequired,
+  setToNoError: propTypes.func,
 };
 
 MovieListItem.defaultProps = {
@@ -162,16 +162,10 @@ MovieListItem.defaultProps = {
   mark: 1,
   overview: 'Sorry here is no info',
   trailer: 'https://www.youtube.com/embed/-iRajLSA8TA',
+  id: null,
+  genres: [1, 2],
+  imageUrl: 'no image here',
+  setToNoError: () => {},
 };
 
-
-const mapStateToProps = state => ({ trailer: state.currentTrailer, error: state.error });
-
-const mapDispatchToProps = dispatch => ({
-  fetchTrailer: (id) => {
-    dispatch(getTrailer(id));
-  },
-  setToNoError: () => dispatch(noError()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MovieListItem);
+export default MovieListItem;

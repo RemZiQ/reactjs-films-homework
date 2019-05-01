@@ -1,1 +1,1 @@
-export { default } from './MovieDetailsPageFooter';
+export { default } from './MovieDetailsPageFooter.container';

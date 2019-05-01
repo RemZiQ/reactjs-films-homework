@@ -1,7 +1,6 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-
-import { MovieListItem } from '../MovieListItem';
+import MovieListItem from '../MovieListItem';
 
 
 it('MovieListItem renders well', () => {

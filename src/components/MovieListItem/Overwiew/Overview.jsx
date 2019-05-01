@@ -50,9 +50,9 @@ Overview.defaultProps = {
   overview: 'Sorry here is no info',
   id: null,
   genres: [],
-  handleClose: null,
-  handleForFetchTrailer: null,
-  handleForOpenModal: null,
+  handleClose: () => {},
+  handleForFetchTrailer: () => {},
+  handleForOpenModal: () => {},
 };
 
 export default Overview;

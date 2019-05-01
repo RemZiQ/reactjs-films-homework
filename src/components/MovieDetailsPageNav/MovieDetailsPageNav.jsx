@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
-
-import { getFilms, getGenres } from '../../modules/module_Search/actions';
+import { Link } from 'react-router-dom';
 
 import './movieDetailsPageNav.scss';
 
-export class Nav extends Component {
+class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,16 +64,4 @@ Nav.defaultProps = {
   genres: null,
 };
 
-const mapStateToProps = store => ({ genres: store.genres });
-const mapDispatchToProps = dispatch => ({
-  fetchData: (search) => {
-    dispatch(getFilms(search));
-  },
-  fetchGengres: () => {
-    dispatch(getGenres());
-  },
-});
-
-export default withRouter(connect(
-  mapStateToProps, mapDispatchToProps,
-)(Nav));
+export default Nav;

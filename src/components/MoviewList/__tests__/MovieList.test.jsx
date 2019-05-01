@@ -1,7 +1,7 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
-import { MoviewList } from '../MovieList';
+import MoviewList from '../MovieList';
 
 
 it('MoviewList renders well with out store', () => {

@@ -8,7 +8,7 @@ exports[`Overview renders well 1`] = `
   <button
     className="movieList__item__closeOverview"
     id="closeOverviewnull"
-    onClick={null}
+    onClick={[Function]}
     type="submit"
   >
     <i

@@ -1,7 +1,7 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
-import { MainInfo } from '../MovieListItemMainInfo';
+import MainInfo from '../MovieListItemMainInfo';
 
 
 it('MainInfo renders well with storeGenres', () => {

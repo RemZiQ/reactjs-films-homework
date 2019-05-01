@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
-import { getTrailer, noError } from '../../modules/module_Search/actions';
 import Trailer from '../MovieListItem/Trailer';
 import TrailerError from '../MovieListItem/TrailerError';
 import Iframe from '../MovieListItem/Trailer/Iframe';
 import './action.scss';
 
-export class Action extends Component {
+class Action extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showInfo: false,
       showTrailer: false,
     };
-    this.toogleTrailer.bind(this);
+    this.toogleTrailer = this.toogleTrailer.bind(this);
   }
 
   toogleInfo = () => {
@@ -86,16 +84,4 @@ Action.defaultProps = {
   setToNoError: null,
 };
 
-const mapStateToProps = store => ({
-  currentMovie: store.currentMovie,
-  currentTrailer: store.currentTrailer,
-  error: store.error,
-});
-const mapDispatchToProps = dispatch => ({
-  fetchTrailer: (id) => {
-    dispatch(getTrailer(id));
-  },
-  setToNoError: () => dispatch(noError()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Action);
+export default Action;

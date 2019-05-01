@@ -1,7 +1,7 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
-import { ButtonHover } from '../ButtonHover';
+import ButtonHover from '../ButtonHover';
 
 
 it('ButtonHover renders well with query', () => {

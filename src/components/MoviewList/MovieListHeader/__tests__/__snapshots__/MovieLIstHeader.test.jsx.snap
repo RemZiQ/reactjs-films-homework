@@ -66,6 +66,8 @@ exports[`StarRating renders well without and with state { showTrailer: true } 1`
         }
       >
         <button
+          id={28}
+          onClick={[Function]}
           type="submit"
         >
           Genre

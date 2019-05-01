@@ -5,22 +5,3 @@ exports[`renders well 1`] = `
   Loading
 </div>
 `;
-
-exports[`renders well2222 1`] = `
-<div
-  className="movieDetailsPage__footer"
->
-  <StarRating
-    duration="NaNh NaNm"
-    genres={
-      Array [
-        99,
-      ]
-    }
-    id={null}
-    rating={NaN}
-    title="Sorry, no title here"
-  />
-  <Connect(Action) />
-</div>
-`;

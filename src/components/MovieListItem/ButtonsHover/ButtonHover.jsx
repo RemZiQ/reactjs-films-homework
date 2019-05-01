@@ -1,12 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { getCurrentMovie } from '../../../modules/module_Search/actions';
+
 import './buttonsHover.scss';
 
-export const ButtonHover = ({
+const ButtonHover = ({
   id,
   handleOpenOverview,
   fetchTrailer,
@@ -75,10 +74,4 @@ ButtonHover.defaultProps = {
   fetchMovie: null,
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchMovie: (ID) => {
-    dispatch(getCurrentMovie(ID));
-  },
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(ButtonHover));
+export default ButtonHover;

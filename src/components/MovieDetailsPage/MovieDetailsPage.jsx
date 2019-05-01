@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+
 import propTypes from 'prop-types';
 
 
@@ -8,7 +8,7 @@ import MovieDetailsPageFooter from '../MovieDetailsPageFooter';
 import './movieDetailsPage.scss';
 
 
-export const MovieDetailsPage = ({ currentMovie }) => {
+const MovieDetailsPage = ({ currentMovie }) => {
   const urlImage = 'https://image.tmdb.org/t/p/original';
   if (currentMovie) {
     const style = {
@@ -30,8 +30,6 @@ export const MovieDetailsPage = ({ currentMovie }) => {
   return <div>loading...</div>;
 };
 
-const mapStateToProps = store => ({ currentMovie: store.currentMovie });
-
 MovieDetailsPage.propTypes = {
   currentMovie: propTypes.objectOf(propTypes.any),
 };
@@ -40,4 +38,4 @@ MovieDetailsPage.defaultProps = {
   currentMovie: null,
 };
 
-export default connect(mapStateToProps, null)(MovieDetailsPage);
+export default MovieDetailsPage;

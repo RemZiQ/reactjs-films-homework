@@ -8,14 +8,20 @@ exports[`MovieListItem renders well 1`] = `
 >
   <div
     className="movieList__item_bg"
-    id="bgundefined"
+    id="bgnull"
     style={
       Object {
-        "backgroundImage": "url(https://image.tmdb.org/t/p/originalundefined)",
+        "backgroundImage": "url(https://image.tmdb.org/t/p/originalno image here)",
       }
     }
   />
   <Connect(MainInfo)
+    genres={
+      Array [
+        1,
+        2,
+      ]
+    }
     mark={1}
     title="Sorry here is no title"
   />

@@ -1,6 +1,6 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import { MovieDetailsPage } from '../MovieDetailsPage';
+import MovieDetailsPage from '../MovieDetailsPage';
 
 
 it('MovieDetailsPage renders well without props', () => {

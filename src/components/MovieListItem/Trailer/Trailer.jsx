@@ -15,7 +15,6 @@ export class Trailer extends Component {
 
   render() {
     const { children } = this.props;
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', children);
     return ReactDOM.createPortal(
       children,
       this.modalContainer,

@@ -120,3 +120,15 @@ export const getComingSoonFilms = () => (dispatch) => {
       return response.json();
     }).then(data => dispatch(fetchData(data))).catch(error => console.log('something went wrong.', error));
 };
+
+export const getByGenre = ID => (dispatch) => {
+  const id = ID;
+  console.log(id);
+  return fetch(`${urlAPI}/discover/movie?${keyAPI}&with_genres=${id}`)
+    .then((response) => {
+      if (response.statusText !== 'OK') {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    }).then(data => dispatch(fetchData(data))).catch(error => console.log('something went wrong.', error));
+};
