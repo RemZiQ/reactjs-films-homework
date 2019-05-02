@@ -123,7 +123,7 @@ export const getComingSoonFilms = () => (dispatch) => {
 
 export const getByGenre = ID => (dispatch) => {
   const id = ID;
-  console.log(id);
+  console.log('id from getBygenre', id);
   return fetch(`${urlAPI}/discover/movie?${keyAPI}&with_genres=${id}`)
     .then((response) => {
       if (response.statusText !== 'OK') {

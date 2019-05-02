@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Component } from 'react';
 import propTypes from 'prop-types';
 
 
@@ -7,7 +7,7 @@ import MovieListHeader from './MovieListHeader';
 import './movieList.scss';
 
 
-class MoviewList extends PureComponent {
+class MoviewList extends Component {
   constructor(props) {
     super(props);
     this.listOfMovieItems = '';
@@ -16,54 +16,62 @@ class MoviewList extends PureComponent {
   componentDidMount() {
     const {
       location,
-      fetchGengres,
-      fetchInitData,
-      fetchInitMovie,
-      fetchData,
-      fetchCurrentMovie,
-      fetchTrandingData,
-      fetchTopRatedData,
-      fetchComingSoonData,
-      store,
+      getInitFilms,
+      getGenres,
+      getFilms,
+      getInitMovie,
+      getCurrentMovie,
+      getTrandingFilms,
+      getTopRated,
+      getComingSoonFilms,
+      genres,
     } = this.props;
 
     if (location.pathname === '/') {
-      if (!store.genres.length) {
-        fetchGengres();
+      if (!genres.length) {
+        getGenres();
       }
-      fetchInitData();
-      fetchInitMovie();
+      getInitFilms();
+      getInitMovie();
 
       // needed for link`s share and get same result on the page
     } else if (location.pathname === '/search') {
+      if (!genres.length) {
+        getGenres();
+      }
       const params = new URLSearchParams(location.search);
       const query = params.get('query');
       const id = params.get('id');
       switch (query) {
         case 'init793797112020979':
-          fetchInitData();
+          getInitFilms();
           break;
         case 'Trending':
-          fetchTrandingData();
+          getTrandingFilms();
           break;
         case 'Top Rated':
-          fetchTopRatedData();
+          getTopRated();
           break;
         case 'Coming soon':
-          fetchComingSoonData();
+          getComingSoonFilms();
           break;
         default:
-          fetchData(query);
+          getFilms(query);
       }
-      !!id ? fetchInitMovie() : fetchCurrentMovie(id);
+      !!id ? getCurrentMovie(id) : getInitMovie();
     }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (this.props === nextProps) return false;
+    return true;
   }
 
   render() {
     let listOfMovieItems = '';
-    const { store } = this.props;
-    if (store.data.results) {
-      listOfMovieItems = store.data.results.map(item => (
+    const { data } = this.props;
+    if (data.results) {
+      listOfMovieItems = data.results.map(item => (
         <MovieListItem
           key={item.id}
           imageUrl={item.poster_path}
@@ -89,36 +97,21 @@ class MoviewList extends PureComponent {
 
 
 MoviewList.propTypes = {
-  store: propTypes.objectOf(
-    propTypes.any,
-  ).isRequired,
-};
-
-
-MoviewList.propTypes = {
+  data: propTypes.objectOf(propTypes.any).isRequired,
+  genres: propTypes.arrayOf(propTypes.any).isRequired,
   location: propTypes.objectOf(propTypes.any),
-  fetchGengres: propTypes.func,
-  fetchInitData: propTypes.func,
-  fetchInitMovie: propTypes.func,
-  fetchData: propTypes.func,
-  fetchCurrentMovie: propTypes.func,
-  fetchTrandingData: propTypes.func,
-  fetchTopRatedData: propTypes.func,
-  fetchComingSoonData: propTypes.func,
-  store: propTypes.objectOf(propTypes.any),
+  getInitFilms: propTypes.func.isRequired,
+  getGenres: propTypes.func.isRequired,
+  getFilms: propTypes.func.isRequired,
+  getInitMovie: propTypes.func.isRequired,
+  getCurrentMovie: propTypes.func.isRequired,
+  getTrandingFilms: propTypes.func.isRequired,
+  getTopRated: propTypes.func.isRequired,
+  getComingSoonFilms: propTypes.func.isRequired,
 };
 
 MoviewList.defaultProps = {
   location: null,
-  fetchGengres: null,
-  fetchInitData: null,
-  fetchInitMovie: null,
-  fetchData: null,
-  fetchCurrentMovie: null,
-  fetchTrandingData: null,
-  fetchTopRatedData: null,
-  fetchComingSoonData: null,
-  store: null,
 };
 
 export default MoviewList;

@@ -7,6 +7,7 @@ import MovieList from './components/MoviewList';
 
 
 const App = ({ location }) => {
+  console.log(location);
   const params = new URLSearchParams(location.search);
   return (
     <div>

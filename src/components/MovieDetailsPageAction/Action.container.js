@@ -1,17 +1,22 @@
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+
+import { currentTrailer, currentMovie, error } from '../../modules/module_Search/selectors';
 import { getTrailer, noError } from '../../modules/module_Search/actions';
 import Action from './Action';
 
-const mapStateToProps = store => ({
-  currentMovie: store.currentMovie,
-  currentTrailer: store.currentTrailer,
-  error: store.error,
+
+const mapStateToProps = createStructuredSelector({
+  currentTrailer,
+  currentMovie,
+  error,
 });
-const mapDispatchToProps = dispatch => ({
-  fetchTrailer: (id) => {
-    dispatch(getTrailer(id));
-  },
-  setToNoError: () => dispatch(noError()),
-});
+
+const mapDispatchToProps = {
+  getTrailer,
+  noError,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Action);

@@ -15,13 +15,13 @@ class Nav extends Component {
   fetchFilmsAndGenres = () => {
     const { searchValue } = this.state;
     this.setState({ searchValue: '' });
-    const { fetchData, fetchGengres, genres } = this.props;
+    const { getFilms, getGenres, genres } = this.props;
     // dont use preventDefault when use REACT ROUTE <LINK> !!!!!
     // e.preventDefault();
     if (!genres.length) {
-      fetchGengres();
+      getGenres();
     }
-    fetchData(searchValue);
+    getFilms(searchValue);
   };
 
   handleChangeInput = (e) => {
@@ -53,14 +53,14 @@ class Nav extends Component {
 }
 
 Nav.propTypes = {
-  fetchData: propTypes.func,
-  fetchGengres: propTypes.func,
+  getFilms: propTypes.func,
+  getGenres: propTypes.func,
   genres: propTypes.arrayOf(propTypes.object),
 };
 
 Nav.defaultProps = {
-  fetchData: null,
-  fetchGengres: null,
+  getFilms: null,
+  getGenres: null,
   genres: null,
 };
 

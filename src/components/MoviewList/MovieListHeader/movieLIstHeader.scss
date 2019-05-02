@@ -32,3 +32,57 @@
   outline: none;
   border-bottom: 2px solid #0aaee4;
 }
+
+.dropDownGenres a {
+  text-decoration: none;
+}
+.dropDownGenres li {
+  display: list-item;
+  padding: 5px 20px;
+  font-size: 28px;
+  letter-spacing: 1px;
+  line-height: 44px;
+  color: #0aaee4;
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+}
+
+.dropDownGenres li:hover {
+  background-color: rgba(10, 174, 228, 0.25);
+}
+.dropDownGenres{
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #f1f1f1;
+  z-index: 100;
+}
+
+.dropDown {
+  position: relative;
+}
+.dropDown:hover > ul {
+  display: block;
+}
+
+// .movieListNav select {
+//   display: inline-block;
+//   background-color: #f1f1f1;
+//   color: #0aaee4;
+//   outline: none;
+//   border-style: none;
+//   font-size: 28px;
+//   letter-spacing: 1px;
+//   line-height: 44px;
+//   font-family: "Helvetica Neue";
+//   font-weight: bold;
+// }
+// .movieListNav option {
+//   display: block;
+// }
+
+// .movieListNav select {
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+// }

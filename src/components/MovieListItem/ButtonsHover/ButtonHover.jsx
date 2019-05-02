@@ -11,7 +11,7 @@ const ButtonHover = ({
   fetchTrailer,
   handleShowTrailer,
   location,
-  fetchMovie,
+  getCurrentMovie,
 }) => {
   const handle = (e) => {
     handleShowTrailer();
@@ -24,7 +24,7 @@ const ButtonHover = ({
 
   const handleOpenOverviewAndFetchCurrentMovie = (e) => {
     handleOpenOverview();
-    fetchMovie(e.target.id);
+    getCurrentMovie(e.target.id);
   };
 
   const param = new URLSearchParams(location.search);
@@ -62,7 +62,7 @@ ButtonHover.propTypes = {
   fetchTrailer: propTypes.func,
   handleShowTrailer: propTypes.func,
   location: propTypes.objectOf(propTypes.any),
-  fetchMovie: propTypes.func,
+  getCurrentMovie: propTypes.func,
 };
 
 ButtonHover.defaultProps = {
@@ -71,7 +71,7 @@ ButtonHover.defaultProps = {
   fetchTrailer: null,
   handleShowTrailer: null,
   location: null,
-  fetchMovie: null,
+  getCurrentMovie: null,
 };
 
 export default ButtonHover;

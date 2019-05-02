@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import {
   getTrandingFilms,
@@ -6,23 +7,17 @@ import {
   getComingSoonFilms,
   getByGenre,
 } from '../../../modules/module_Search/actions';
+import { genres } from '../../../modules/module_Search/selectors';
 import MovieListHeader from './MovieListHEader';
 
+const mapStateToProps = createStructuredSelector({ genres });
 
-const mapDispatchToProps = dispatch => ({
-  fetchTrandingData: () => {
-    dispatch(getTrandingFilms());
-  },
-  fetchTopRatedData: () => {
-    dispatch(getTopRated());
-  },
-  fetchComingSoonData: () => {
-    dispatch(getComingSoonFilms());
-  },
-  fetchByGenre: (id) => {
-    dispatch(getByGenre(id));
-  },
-});
+const mapDispatchToProps = {
+  getTrandingFilms,
+  getTopRated,
+  getComingSoonFilms,
+  getByGenre,
+};
 
 
-export default connect(null, mapDispatchToProps)(MovieListHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieListHeader);

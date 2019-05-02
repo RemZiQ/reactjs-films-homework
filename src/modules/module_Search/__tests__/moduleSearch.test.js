@@ -24,6 +24,13 @@ import {
   lang,
 } from '../actions';
 import reducer from '../reducer';
+import {
+  data,
+  genres,
+  currentMovie,
+  currentTrailer,
+  error,
+} from '../selectors';
 
 
 describe('Search reducer', () => {
@@ -441,4 +448,40 @@ describe('async actions', () => {
       expect(result).toEqual(answer);
     });
   });
+});
+
+// selectors
+it('data selector', () => {
+  const mockedStore = {
+    data: 'someData',
+  };
+  expect(data(mockedStore)).toEqual('someData');
+});
+
+it('genres selector', () => {
+  const mockedStore = {
+    genres: 'someData',
+  };
+  expect(genres(mockedStore)).toEqual('someData');
+});
+
+it('currentMovie selector', () => {
+  const mockedStore = {
+    currentMovie: 'currentMovie',
+  };
+  expect(currentMovie(mockedStore)).toEqual('currentMovie');
+});
+
+it('currentTrailer selector', () => {
+  const mockedStore = {
+    currentTrailer: 'currentTrailer',
+  };
+  expect(currentTrailer(mockedStore)).toEqual('currentTrailer');
+});
+
+it('error selector', () => {
+  const mockedStore = {
+    error: false,
+  };
+  expect(error(mockedStore)).toEqual(false);
 });

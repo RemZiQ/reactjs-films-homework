@@ -22,9 +22,9 @@ class Action extends Component {
   };
 
   showTrailer = () => {
-    const { fetchTrailer } = this.props;
+    const { getTrailer } = this.props;
     const { currentMovie } = this.props;
-    fetchTrailer(currentMovie.id);
+    getTrailer(currentMovie.id);
     this.toogleTrailer();
   };
 
@@ -34,13 +34,13 @@ class Action extends Component {
   }
 
   render() {
-    const { info, setToNoError } = this.props;
+    const { info, noError } = this.props;
     const { showInfo, showTrailer } = this.state;
     const infoToggled = showInfo ? <div className="action_info">{info}</div> : null;
     const { currentTrailer, error } = this.props;
     const closeTrailer = () => {
       this.toogleTrailer();
-      setToNoError();
+      noError();
     };
     return (
       <div className="action_container">
@@ -71,8 +71,8 @@ Action.propTypes = {
   currentMovie: propTypes.objectOf(propTypes.any),
   currentTrailer: propTypes.string,
   error: propTypes.bool,
-  fetchTrailer: propTypes.func,
-  setToNoError: propTypes.func,
+  getTrailer: propTypes.func,
+  noError: propTypes.func,
 };
 
 Action.defaultProps = {
@@ -80,8 +80,8 @@ Action.defaultProps = {
   currentTrailer: 'https://www.youtube.com/embed/kVrqfYjkTdQ&t',
   currentMovie: null,
   error: null,
-  fetchTrailer: null,
-  setToNoError: null,
+  getTrailer: null,
+  noError: null,
 };
 
 export default Action;

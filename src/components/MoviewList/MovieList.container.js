@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 
 import {
   getInitFilms,
@@ -11,34 +12,25 @@ import {
   getTopRated,
   getComingSoonFilms,
 } from '../../modules/module_Search/actions';
+import { data, genres } from '../../modules/module_Search/selectors';
 import MoviewList from './MovieList';
 
-const mapStateToProps = state => ({ store: state });
-const mapDispatchToProps = dispatch => ({
-  fetchInitData: () => {
-    dispatch(getInitFilms());
-  },
-  fetchInitMovie: () => {
-    dispatch(getInitMovie());
-  },
-  fetchCurrentMovie: (id) => {
-    dispatch(getCurrentMovie(id));
-  },
-  fetchData: (search) => {
-    dispatch(getFilms(search));
-  },
-  fetchGengres: () => {
-    dispatch(getGenres());
-  },
-  fetchTrandingData: (id) => {
-    dispatch(getTrandingFilms(id));
-  },
-  fetchTopRatedData: () => {
-    dispatch(getTopRated());
-  },
-  fetchComingSoonData: () => {
-    dispatch(getComingSoonFilms());
-  },
+
+const mapStateToProps = createStructuredSelector({
+  data,
+  genres,
 });
+
+
+const mapDispatchToProps = {
+  getInitFilms,
+  getGenres,
+  getFilms,
+  getInitMovie,
+  getCurrentMovie,
+  getTrandingFilms,
+  getTopRated,
+  getComingSoonFilms,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MoviewList));

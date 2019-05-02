@@ -11,7 +11,7 @@ import App from './App';
 import store from './modules/store';
 
 
-const component = () => {
+const Component = () => {
   render((
     <BrowserRouter>
       <Provider store={store}>
@@ -21,6 +21,6 @@ const component = () => {
   document.getElementById('root'));
 };
 
-component();
-store.subscribe(component);
-export default component;
+Component();
+store.subscribe(Component);
+export default Component;

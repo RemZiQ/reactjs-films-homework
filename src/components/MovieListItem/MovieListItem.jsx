@@ -46,9 +46,9 @@ class MovieListItem extends Component {
   };
 
   handleForFetchTrailer = (e) => {
-    const { fetchTrailer } = this.props;
+    const { getTrailer } = this.props;
     const ID = e.target.id;
-    fetchTrailer(ID);
+    getTrailer(ID);
   };
 
   handleShowTrailer() {
@@ -68,7 +68,7 @@ class MovieListItem extends Component {
       genres,
       overview,
       imageUrl,
-      trailer,
+      currentTrailer,
     } = this.props;
     const style = {
       backgroundImage: `url(https://image.tmdb.org/t/p/original${imageUrl})`,
@@ -111,10 +111,10 @@ class MovieListItem extends Component {
         </div>
       );
     } if (showTrailer) {
-      const { error, setToNoError } = this.props;
+      const { error, noError } = this.props;
       const handlerCloseTrailer = () => {
         this.handleShowTrailer();
-        setToNoError();
+        noError();
       };
       return (
         <div onMouseOver={this.handleVisibleButtons} onFocus={this.handleVisibleButtons} className="movieList__item">
@@ -125,7 +125,7 @@ class MovieListItem extends Component {
                   <i className="fas fa-times" />
                 </button>
                 <TrailerError>
-                  <Iframe trailer={trailer} error={error} />
+                  <Iframe trailer={currentTrailer} error={error} />
                 </TrailerError>
               </div>
             </Trailer>
@@ -145,27 +145,27 @@ class MovieListItem extends Component {
 
 
 MovieListItem.propTypes = {
-  fetchTrailer: propTypes.func.isRequired,
+  getTrailer: propTypes.func.isRequired,
   id: propTypes.number,
   title: propTypes.string,
   mark: propTypes.number,
   genres: propTypes.arrayOf(propTypes.number),
   overview: propTypes.string,
   imageUrl: propTypes.string,
-  trailer: propTypes.string,
+  currentTrailer: propTypes.string,
   error: propTypes.bool.isRequired,
-  setToNoError: propTypes.func,
+  noError: propTypes.func,
 };
 
 MovieListItem.defaultProps = {
   title: 'Sorry here is no title',
   mark: 1,
   overview: 'Sorry here is no info',
-  trailer: 'https://www.youtube.com/embed/-iRajLSA8TA',
+  currentTrailer: 'https://www.youtube.com/embed/-iRajLSA8TA',
   id: null,
   genres: [1, 2],
   imageUrl: 'no image here',
-  setToNoError: () => {},
+  noError: () => {},
 };
 
 export default MovieListItem;
