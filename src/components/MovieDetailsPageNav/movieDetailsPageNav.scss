@@ -36,6 +36,10 @@
   font-family: "Helvetica Neue", sans-serif;
   outline: none;
 }
+.nav__search::selection {
+  background-color: rgba(10, 177, 233, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+}
 
 .nav__search_button {
   position: absolute;

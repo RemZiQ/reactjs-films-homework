@@ -12,9 +12,17 @@ class Nav extends Component {
     };
   }
 
+  componentDidMount() {
+    const { location } = this.props;
+    if (location.pathname === '/search') {
+      const params = new URLSearchParams(location.search);
+      const query = params.get('query');
+      this.setState({ searchValue: query });
+    }
+  }
+
   fetchFilmsAndGenres = () => {
     const { searchValue } = this.state;
-    this.setState({ searchValue: '' });
     const { getFilms, getGenres, genres } = this.props;
     // dont use preventDefault when use REACT ROUTE <LINK> !!!!!
     // e.preventDefault();
@@ -38,6 +46,7 @@ class Nav extends Component {
         <form method="get" className="nav__form_search">
           <input
             type="search"
+            autoComplete="off"
             className="nav__search"
             id="searchInputID"
             value={searchValue}
@@ -56,12 +65,14 @@ Nav.propTypes = {
   getFilms: propTypes.func,
   getGenres: propTypes.func,
   genres: propTypes.arrayOf(propTypes.object),
+  location: propTypes.objectOf(propTypes.any),
 };
 
 Nav.defaultProps = {
   getFilms: null,
   getGenres: null,
   genres: null,
+  location: null,
 };
 
 export default Nav;
