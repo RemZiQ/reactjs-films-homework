@@ -4,10 +4,10 @@ import propTypes from 'prop-types';
 
 import MovieDetailsPage from './components/MovieDetailsPage';
 import MovieList from './components/MoviewList';
+import Footer from './components/Footer';
 
 
 const App = ({ location }) => {
-  console.log(location);
   const params = new URLSearchParams(location.search);
   return (
     <div>
@@ -16,6 +16,7 @@ const App = ({ location }) => {
         <Route path="/" exact component={MovieList} />
         <Route path="/:search" component={MovieList} />
       </Switch>
+      <Footer />
     </div>
   );
 };

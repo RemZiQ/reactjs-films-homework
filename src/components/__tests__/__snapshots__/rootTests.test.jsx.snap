@@ -16,5 +16,6 @@ exports[`App renders well 1`] = `
       path="/:search"
     />
   </Switch>
+  <Footer />
 </div>
 `;

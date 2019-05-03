@@ -1,0 +1,28 @@
+.footer {
+  height: 225px;
+}
+
+.footerLogo {
+  min-height: 150px;
+  width: 500px;
+  margin: 0 auto;
+  line-height: 150px;
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 2px;
+  color: #0aaee4;
+  font-family: "Helvetica Neue";
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footerCopyright{
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 44px;
+  color: #242b2d;
+  font-family: "Helvetica Neue";
+}
