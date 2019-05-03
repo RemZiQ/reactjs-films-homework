@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StarRating renders well without and with state { showTrailer: true } 1`] = `
+<div
+  className="action_container"
+>
+  <div
+    className="action__buttons_container"
+  >
+    <button
+      className="action__watch"
+      onClick={[Function]}
+      type="button"
+    >
+      Watch now
+    </button>
+    <button
+      className="action__view"
+      onClick={[Function]}
+      type="button"
+    >
+      View info
+    </button>
+  </div>
+</div>
+`;

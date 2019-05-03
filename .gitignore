@@ -1,0 +1,9 @@
+.idea
+node_modules
+*.bundle.js
+*.log
+package-lock.json
+
+# Ignore test-related files
+
+coverage

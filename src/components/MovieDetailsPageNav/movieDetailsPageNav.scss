@@ -1,0 +1,71 @@
+.pageHeader__nav {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 70px;
+  max-height: 70px;
+  padding: 0 100px 0 120px;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-size: 50px;
+  letter-spacing: 2px;
+  line-height: 64px;
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 800;
+}
+
+.nav__form_search {
+  position: relative;
+}
+
+.nav__search {
+  width: 520px;
+  max-height: 70px;
+  padding: 15px 0 20px 15px;
+  background: none;
+  border: solid 3px white;
+  border-radius: 10px;
+  font-size: 28px;
+  letter-spacing: 1px;
+  line-height: 44px;
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+  outline: none;
+}
+.nav__search::selection {
+  background-color: rgba(10, 177, 233, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nav__search_button {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  width: 200px;
+  height: 60px;
+  background: none;
+  color: white;
+  text-align: right;
+  border: none;
+}
+
+.nav__search_button:focus {
+  border: none;
+  outline: none;
+}
+
+::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.nav__search_button::before {
+  content: "\f002";
+  font-family: "Font Awesome 5 Free";
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}

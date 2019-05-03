@@ -1,0 +1,49 @@
+
+.movieList__item__overview {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 75px 0 0 40px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.movieList__item__overviewDetails {
+  max-height: 270px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overview__watch {
+  position: absolute;
+  bottom: 75px;
+}
+
+// close buttton 
+
+.movieList__item__closeOverview {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  outline: none;
+  color: white;
+}
+
+.movieList__item__closeOverview:active {
+  color: rgb(105, 103, 103);
+}
+
+.movieList__item__closeOverview .fa-times {
+  font-size: 25px;
+}
+
+.movieList__item_bgOverwiew {
+  height: 100%;
+}

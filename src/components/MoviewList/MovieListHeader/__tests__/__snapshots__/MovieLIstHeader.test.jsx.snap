@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieListHeader renders well with props 1`] = `
+<nav
+  className="movieListNav"
+>
+  <ul>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Trending",
+          }
+        }
+      >
+        <button
+          type="submit"
+        >
+          Trending
+        </button>
+      </Link>
+    </li>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Top Rated",
+          }
+        }
+      >
+        <button
+          type="submit"
+        >
+          Top Rated
+        </button>
+      </Link>
+    </li>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Coming soon",
+          }
+        }
+      >
+        <button
+          type="submit"
+        >
+          Coming soon
+        </button>
+      </Link>
+    </li>
+    <li
+      className="dropDown"
+    >
+      <button
+        type="submit"
+      >
+        Genre
+      </button>
+      <ul
+        className="dropDownGenres"
+      >
+        <Link
+          to={
+            Object {
+              "pathname": "/search",
+              "search": "?query=Action",
+            }
+          }
+        >
+          <li
+            id={22}
+            onClick={[Function]}
+          >
+            Action
+          </li>
+        </Link>
+        <Link
+          to={
+            Object {
+              "pathname": "/search",
+              "search": "?query=Action2",
+            }
+          }
+        >
+          <li
+            id={23}
+            onClick={[Function]}
+          >
+            Action2
+          </li>
+        </Link>
+        <Link
+          to={
+            Object {
+              "pathname": "/search",
+              "search": "?query=Action3",
+            }
+          }
+        >
+          <li
+            id={24}
+            onClick={[Function]}
+          >
+            Action3
+          </li>
+        </Link>
+      </ul>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`MovieListHeader renders well without props 1`] = `
+<nav
+  className="movieListNav"
+>
+  <ul>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Trending",
+          }
+        }
+      >
+        <button
+          type="submit"
+        >
+          Trending
+        </button>
+      </Link>
+    </li>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Top Rated",
+          }
+        }
+      >
+        <button
+          type="submit"
+        >
+          Top Rated
+        </button>
+      </Link>
+    </li>
+    <li>
+      <Link
+        to={
+          Object {
+            "pathname": "/search",
+            "search": "?query=Coming soon",
+          }
+        }
+      >
+        <button
+          type="submit"
+        >
+          Coming soon
+        </button>
+      </Link>
+    </li>
+    <li
+      className="dropDown"
+    >
+      <button
+        type="submit"
+      >
+        Genre
+      </button>
+      <ul
+        className="dropDownGenres"
+      >
+        <Link
+          to={
+            Object {
+              "pathname": "/search",
+              "search": "?query=Action",
+            }
+          }
+        >
+          <li
+            id={28}
+            onClick={[Function]}
+          >
+            Action
+          </li>
+        </Link>
+      </ul>
+    </li>
+  </ul>
+</nav>
+`;

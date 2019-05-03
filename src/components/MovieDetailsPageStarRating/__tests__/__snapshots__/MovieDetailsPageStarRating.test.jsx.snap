@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StarRating renders well 1`] = `
+<div
+  className="starRating_container"
+>
+  <h1>
+    Sorry, no title here
+  </h1>
+  <div
+    className="starRating__genres_container"
+  >
+    <div
+      className="starRating__genres"
+    >
+      <ul>
+        <li>
+          <button
+            type="submit"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      className="starRating__duration"
+    >
+      <span>
+        Sorry, no duration here
+      </span>
+    </div>
+    <div
+      className="starRating__stars_container"
+    >
+      <div
+        className="starRating__stars"
+      >
+        <ul>
+          <li>
+            <i
+              className="fas fa-star"
+            />
+          </li>
+        </ul>
+      </div>
+      <div
+        className="starRating__rating"
+      >
+        1
+      </div>
+    </div>
+  </div>
+</div>
+`;

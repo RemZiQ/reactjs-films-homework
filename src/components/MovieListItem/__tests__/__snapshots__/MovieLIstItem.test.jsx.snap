@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieListItem renders well 1`] = `
+<div
+  className="movieList__item"
+  onFocus={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="movieList__item_bg"
+    id="bgnull"
+    style={
+      Object {
+        "backgroundImage": "url(https://image.tmdb.org/t/p/originalno image here)",
+      }
+    }
+  />
+  <Connect(MainInfo)
+    genres={
+      Array [
+        1,
+        2,
+      ]
+    }
+    mark={1}
+    title="Sorry here is no title"
+  />
+</div>
+`;
